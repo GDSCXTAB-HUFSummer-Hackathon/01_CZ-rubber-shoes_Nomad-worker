@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="nomad_primary_blue">#195A95</color>
+    <color name="nomad_secondary_yellow">#FEC600</color>
+    <color name="nomad_accent_red">#FF5449</color>
+    <color name="nomad_positive_green">#49AF5B</color>
+    <color name="nomad_black_01">#000000</color>
+    <color name="nomad_black_02">#111111</color>
+    <color name="nomad_grey_01">#5f5f69</color>
+    <color name="nomad_grey_02">#52514d</color>
+    <color name="nomad_grey_03">#555555</color>
+    <color name="nomad_grey_04">#9a9999</color>
+    <color name="nomad_grey_05">#929292</color>
+    <color name="nomad_grey_06">#a5a5a5</color>
+    <color name="nomad_grey_07">#d6d6d6</color>
+    <color name="nomad_grey_08">#e9e9e9</color>
+    <color name="nomad_grey_09">#eeeff1</color>
+    <color name="nomad_blue_grey">#e2e2e6</color>
+    <color name="nomad_white">#ffffff</color>
+
 </resources>
