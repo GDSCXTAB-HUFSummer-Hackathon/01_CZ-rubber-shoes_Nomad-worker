@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NomadWorker</string>
+    <string name="home_label">홈</string>
+    <string name="feed_label">피드</string>
+    <string name="search_label">검색</string>
+    <string name="my_page_label">마이페이지</string>
 </resources>
