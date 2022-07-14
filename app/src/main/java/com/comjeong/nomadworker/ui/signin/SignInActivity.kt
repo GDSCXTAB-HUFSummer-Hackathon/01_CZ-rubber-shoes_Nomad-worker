@@ -17,10 +17,12 @@ class SignInActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        bindViews()
+    }
+
+    private fun bindViews() {
         binding.btnSignUp.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
-
-
 }
