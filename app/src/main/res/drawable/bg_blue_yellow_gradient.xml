@@ -3,7 +3,7 @@
 
     <gradient
         android:angle="315"
-        android:endColor="@color/nomad_secondary_yellow"
-        android:startColor="@color/nomad_primary_blue"
+        android:endColor="@color/nomad_secondary_yellow_gradient"
+        android:startColor="@color/nomad_primary_blue_gradient"
         android:type="linear" />
 </shape>
