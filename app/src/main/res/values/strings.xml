@@ -4,4 +4,8 @@
     <string name="feed_label">피드</string>
     <string name="search_label">검색</string>
     <string name="my_page_label">마이페이지</string>
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+    <string name="sign_in_text">로그인</string>
+    <string name="sign_up_text">회원가입</string>
 </resources>
