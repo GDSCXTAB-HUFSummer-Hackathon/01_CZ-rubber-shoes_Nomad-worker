@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="nomad_primary_blue">#195A95</color>
+    <color name="nomad_primary_blue_gradient">#4698E1</color>
     <color name="nomad_secondary_yellow">#FEC600</color>
+    <color name="nomad_secondary_yellow_gradient">#EFCA48</color>
     <color name="nomad_accent_red">#FF5449</color>
     <color name="nomad_positive_green">#49AF5B</color>
     <color name="nomad_black_01">#000000</color>
@@ -17,5 +19,4 @@
     <color name="nomad_grey_09">#eeeff1</color>
     <color name="nomad_blue_grey">#e2e2e6</color>
     <color name="nomad_white">#ffffff</color>
-
 </resources>
