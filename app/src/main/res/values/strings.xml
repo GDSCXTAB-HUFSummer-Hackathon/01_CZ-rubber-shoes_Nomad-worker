@@ -8,4 +8,19 @@
     <string name="password">비밀번호</string>
     <string name="sign_in_text">로그인</string>
     <string name="sign_up_text">회원가입</string>
+    <string name="verify_number">인증 번호</string>
+    <string name="next">다음</string>
+    <string name="confirm_password">비밀번호 확인</string>
+    <string name="nickname">닉네임</string>
+    <string name="complete_signup">가입하기</string>
+    <string name="signup_email_title">이메일을 입력해주세요.</string>
+    <string name="signup_email_title_message">이메일 인증을 위해 정확한 이메일을 입력해주세요.</string>
+    <string name="signup_verify">인증하기</string>
+    <string name="signup_verify_title">인증 번호를 입력해주세요.</string>
+    <string name="signup_verify_title_message">작성하신 이메일로 전송 된 인증 번호를 입력해주세요.</string>
+    <string name="resend_verify_code">인증 번호를 못 받았어요 :(</string>
+    <string name="signup_password_title">비밀번호를 입력해주세요.</string>
+    <string name="signup_password_title_message">영어와 숫자를 포함해 10자리 이상으로 입력해주세요.</string>
+    <string name="signup_nickname_title">사용하실 닉네임을 입력해주세요.</string>
+    <string name="signup_nickname_title_message">닉네임은 수정이 불가하니 신중하게 입력해주세요 :)</string>
 </resources>

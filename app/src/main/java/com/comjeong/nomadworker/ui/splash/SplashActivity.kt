@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.comjeong.nomadworker.R
 import com.comjeong.nomadworker.ui.MainActivity
+import com.comjeong.nomadworker.ui.signin.SignInActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
     private fun initSplash() {
         Handler(Looper.getMainLooper()).postDelayed({
             Log.e("Splash", "TEST")
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }, 1000L)
     }
