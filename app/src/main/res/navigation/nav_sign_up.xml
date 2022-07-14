@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_sign_up"
+    app:startDestination="@id/navigation_email">
+
+    <fragment
+        android:id="@+id/navigation_email"
+        android:name="com.comjeong.nomadworker.ui.signup.SignUpEmailFragment"
+        android:label="SignUpEmailFragment"
+        tools:layout="@layout/fragment_sign_up_email">
+        <action
+            android:id="@+id/action_email_to_verify"
+            app:destination="@id/navigation_verify" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_verify"
+        android:name="com.comjeong.nomadworker.ui.signup.SignUpVerifyFragment"
+        android:label="SignUpVerifyFragment"
+        tools:layout="@layout/fragment_sign_up_verify">
+        <action
+            android:id="@+id/action_verify_to_password"
+            app:destination="@id/navigation_password" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_password"
+        android:name="com.comjeong.nomadworker.ui.signup.SignUpPasswordFragment"
+        android:label="SignUpPasswordFragment"
+        tools:layout="@layout/fragment_sign_up_password">
+        <action
+            android:id="@+id/action_password_to_nickname"
+            app:destination="@id/navigation_nickname" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_nickname"
+        android:name="com.comjeong.nomadworker.ui.signup.SignUpNickNameFragment"
+        android:label="SignUpNickNameFragment"
+        tools:layout="@layout/fragment_sign_up_nick_name"/>
+</navigation>
