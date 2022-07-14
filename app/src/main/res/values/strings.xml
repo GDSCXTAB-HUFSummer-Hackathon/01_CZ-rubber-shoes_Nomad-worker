@@ -20,7 +20,18 @@
     <string name="signup_verify_title_message">작성하신 이메일로 전송 된 인증 번호를 입력해주세요.</string>
     <string name="resend_verify_code">인증 번호를 못 받았어요 :(</string>
     <string name="signup_password_title">비밀번호를 입력해주세요.</string>
-    <string name="signup_password_title_message">영어와 숫자를 포함해 10자리 이상으로 입력해주세요.</string>
+    <string name="signup_password_title_message">영어와 숫자, 문자를 포함해 8~15자리 이내로 입력해주세요.</string>
     <string name="signup_nickname_title">사용하실 닉네임을 입력해주세요.</string>
     <string name="signup_nickname_title_message">닉네임은 수정이 불가하니 신중하게 입력해주세요 :)</string>
+    <string name="correct_password">알맞은 비밀번호 입니다 :)</string>
+    <string name="incorrect_password">적합하지 않은 비밀번호 입니다 :(</string>
+    <string name="same_password">비밀번호가 일치합니다!</string>
+    <string name="different_password">비밀번호가 달라요. 확인해주세요!</string>
+    <string name="correct_email_format">여기로 인증 번호를 보낼게요!</string>
+    <string name="incorrect_email_format">잘못된 이메일 형식이에요 :(</string>
+    <string name="already_user">이미 존재하는 이메일입니다!</string>
+    <string name="verify_email_success">인증 되었어요!</string>
+    <string name="verify_email_fail">인증 번호가 틀렸습니다. 다시 확인해주세요!</string>
+    <string name="usable_nickname">사용 가능한 닉네임이에요!</string>
+    <string name="unusable_nickname">이미 존재하는 닉네임이에요 :(</string>
 </resources>

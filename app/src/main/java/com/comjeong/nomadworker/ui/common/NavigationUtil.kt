@@ -1,5 +1,6 @@
 package com.comjeong.nomadworker.ui.common
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
@@ -12,15 +13,19 @@ object NavigationUtil {
         Navigation.findNavController(this).navigate(action)
     }
 
-    fun View.navigateWithData(navDirection: NavDirections) {
+    fun View.navigateWithArgs(navDirection: NavDirections) {
         Navigation.findNavController(this).navigate(navDirection)
+    }
+
+    fun Fragment.navigateWithBundle(action: Int, bundle: Bundle) {
+        findNavController().navigate(action, bundle)
     }
 
     fun Fragment.navigate(action: Int) {
         this.findNavController().navigate(action)
     }
 
-    fun Fragment.navigateWithData(navDirections: NavDirections) {
+    fun Fragment.navigateWithArgs(navDirections: NavDirections) {
         this.findNavController().navigate(navDirections)
     }
 
