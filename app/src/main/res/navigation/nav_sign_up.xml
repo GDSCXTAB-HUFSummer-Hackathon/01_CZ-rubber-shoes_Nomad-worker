@@ -39,5 +39,14 @@
         android:id="@+id/navigation_nickname"
         android:name="com.comjeong.nomadworker.ui.signup.SignUpNickNameFragment"
         android:label="SignUpNickNameFragment"
-        tools:layout="@layout/fragment_sign_up_nick_name"/>
+        tools:layout="@layout/fragment_sign_up_nick_name">
+        <action
+            android:id="@+id/action_signup_to_on_boarding"
+            app:destination="@id/navigation_on_boarding" />
+    </fragment>
+    <activity
+        android:id="@+id/navigation_on_boarding"
+        android:name="com.comjeong.nomadworker.ui.onboarding.OnBoardingActivity"
+        android:label="OnBoardingActivity"
+        tools:layout="@layout/activity_on_boarding"/>
 </navigation>

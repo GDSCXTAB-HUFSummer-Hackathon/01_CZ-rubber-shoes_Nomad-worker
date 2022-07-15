@@ -105,6 +105,7 @@ class SignUpNickNameFragment :
         binding.btnComplete.setOnClickListener {
             // TODO Navigate Onboarding
             Toast.makeText(requireContext(), "회원가입 완료", Toast.LENGTH_SHORT).show()
+            navigate(R.id.action_signup_to_on_boarding)
         }
     }
 }

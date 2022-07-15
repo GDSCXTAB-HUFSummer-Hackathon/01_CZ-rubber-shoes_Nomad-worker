@@ -34,4 +34,5 @@
     <string name="verify_email_fail">인증 번호가 틀렸습니다. 다시 확인해주세요!</string>
     <string name="usable_nickname">사용 가능한 닉네임이에요!</string>
     <string name="unusable_nickname">이미 존재하는 닉네임이에요 :(</string>
+    <string name="skip_on_boarding">SKIP</string>
 </resources>

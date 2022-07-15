@@ -42,6 +42,10 @@
         <item name="android:textSize">14dp</item>
     </style>
 
+    <style name="TextSubtitle2.Grey">
+        <item name="android:textColor">@color/nomad_grey_06</item>
+    </style>
+
     <!-- 13dp -->
     <style name="TextSubtitle3">
         <item name="android:textSize">13dp</item>
