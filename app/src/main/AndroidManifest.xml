@@ -28,6 +28,9 @@
         <activity android:name=".ui.onboarding.OnBoardingActivity"
             android:exported="false" />
 
+        <activity android:name=".ui.permission.CheckPermissionActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="false" />

@@ -1,5 +1,6 @@
 package com.comjeong.nomadworker.ui.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.comjeong.nomadworker.R
 import com.comjeong.nomadworker.databinding.ActivityOnBoardingBinding
 import com.comjeong.nomadworker.ui.common.BaseActivity
+import com.comjeong.nomadworker.ui.permission.CheckPermissionActivity
 import com.google.android.material.tabs.TabLayoutMediator
 
 class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>(R.layout.activity_on_boarding) {
@@ -70,12 +72,13 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>(R.layout.acti
     private fun bindViews() {
         binding.btnStart.setOnClickListener {
             // 권한 확인
-//            startActivity(Intent(this, ))
-//            finish()
+            startActivity(Intent(this, CheckPermissionActivity::class.java))
+            finish()
         }
 
         binding.tvSkip.setOnClickListener {
-            // 권한 확인
+            startActivity(Intent(this, CheckPermissionActivity::class.java))
+            finish()
         }
     }
 }
