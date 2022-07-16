@@ -7,12 +7,24 @@
         <item name="android:textSize">24dp</item>
     </style>
 
-    <style name="TextHeadLine5.Black01" >
+    <style name="TextHeadLine5.Black01">
         <item name="android:textColor">@color/nomad_black_01</item>
     </style>
 
     <style name="TextHeadLine5.Black01.Bold">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHeadLine6">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="TextHeadLine6.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHeadLine6.Bold.Black">
+        <item name="android:textColor">@color/nomad_black_01</item>
     </style>
 
 
@@ -40,6 +52,18 @@
     <!-- 14dp -->
     <style name="TextSubtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextSubtitle2.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextSubtitle2.Grey">
+        <item name="android:textColor">@color/nomad_grey_06</item>
+    </style>
+
+    <style name="TextSubtitle2.Bold.Blue">
+        <item name="android:textColor">@color/nomad_primary_blue</item>
     </style>
 
     <!-- 13dp -->
