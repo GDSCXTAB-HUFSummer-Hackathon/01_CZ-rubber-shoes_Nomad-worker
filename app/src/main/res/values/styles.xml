@@ -75,6 +75,14 @@
         <item name="android:textColor">@color/nomad_primary_blue</item>
     </style>
 
+    <style name="TextSubtitle3.Black01">
+        <item name="android:textColor">@color/nomad_black_01</item>
+    </style>
+
+    <style name="TextSubtitle3.Black02">
+        <item name="android:textColor">@color/nomad_black_02</item>
+    </style>
+
     <!-- 11dp -->
     <style name="TextCaption" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">11dp</item>
@@ -87,4 +95,11 @@
     <style name="TextCaption.Positive">
         <item name="android:textColor">@color/nomad_positive_green</item>
     </style>
+
+    <!-- Style to round up the image view  -->
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

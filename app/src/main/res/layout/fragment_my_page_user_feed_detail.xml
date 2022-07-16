@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/ab_feed_top_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/nomad_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/ic_back_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/TextSubtitle1.Bold.Black01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:layout_constraintTop_toTopOf="@id/btn_back"
+                        tools:text="피드 상세" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_feed_detail_photo"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ab_feed_top_banner"
+                tools:src="@drawable/img_home_banner" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_feed_detail_user_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="14dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_feed_detail_photo"
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                tools:src="@drawable/img_home_banner" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextSubtitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_feed_detail_user_profile"
+                app:layout_constraintEnd_toStartOf="@id/btn_like"
+                app:layout_constraintStart_toEndOf="@id/iv_feed_detail_user_profile"
+                app:layout_constraintTop_toTopOf="@id/iv_feed_detail_user_profile"
+                tools:text="강원도불주먹" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="1dp"
+                android:background="@drawable/ic_like_20"
+                app:layout_constraintBottom_toBottomOf="@id/iv_feed_detail_user_profile"
+                app:layout_constraintEnd_toStartOf="@id/tv_like_count"
+                app:layout_constraintTop_toTopOf="@id/iv_feed_detail_user_profile" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_like_count"
+                style="@style/TextSubtitle2.Grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_feed_detail_user_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_feed_detail_user_profile"
+                tools:text="127" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_user_feed_title"
+                style="@style/TextSubtitle1.Bold.Blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_feed_detail_user_profile"
+                tools:text="강원도 속초 스타벅스" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextSubtitle3.Black01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_user_feed_title"
+                tools:text="안녕하세요. 이번에 소개해드릴 장소는 강원도 속초에 있는 스타벅스입니다!" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
