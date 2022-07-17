@@ -2,6 +2,19 @@
 <resources>
     <!-- Text Styles -->
 
+    <!-- 32dp -->
+    <style name="TextHeadLine4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">32dp</item>
+    </style>
+
+    <style name="TextHeadLine4.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHeadLine4.Bold.White">
+        <item name="android:textColor">@color/nomad_white</item>
+    </style>
+
     <!-- 24dp -->
     <style name="TextHeadLine5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="android:textSize">24dp</item>
@@ -15,6 +28,15 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextHeadLine5.White">
+        <item name="android:textColor">@color/nomad_white</item>
+    </style>
+
+    <style name="TextHeadLine5.White.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 20dp -->
     <style name="TextHeadLine6">
         <item name="android:textSize">20dp</item>
     </style>
@@ -27,6 +49,17 @@
         <item name="android:textColor">@color/nomad_black_01</item>
     </style>
 
+    <style name="TextHeadLine6.Bold.Blue">
+        <item name="android:textColor">@color/nomad_primary_blue</item>
+    </style>
+
+    <style name="TextHeadLine6.White">
+        <item name="android:textColor">@color/nomad_white</item>
+    </style>
+
+    <style name="TextHeadLine6.White.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <!-- 16dp -->
     <style name="TextSubtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
@@ -75,6 +108,10 @@
         <item name="android:textColor">@color/nomad_primary_blue</item>
     </style>
 
+    <style name="TextSubtitle3.Grey07">
+        <item name="android:textColor">@color/nomad_grey_07</item>
+    </style>
+
     <style name="TextSubtitle3.Black01">
         <item name="android:textColor">@color/nomad_black_01</item>
     </style>
@@ -94,6 +131,11 @@
 
     <style name="TextCaption.Positive">
         <item name="android:textColor">@color/nomad_positive_green</item>
+    </style>
+
+    <!-- Image Style -->
+    <style name="RoundCorner10">
+        <item name="cornerSize">10dp</item>
     </style>
 
     <!-- Style to round up the image view  -->

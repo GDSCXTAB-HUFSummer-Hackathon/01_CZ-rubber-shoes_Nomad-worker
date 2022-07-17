@@ -7,6 +7,7 @@
     <color name="nomad_accent_red">#FF5449</color>
     <color name="nomad_positive_green">#49AF5B</color>
     <color name="nomad_black_01">#000000</color>
+    <color name="nomad_black_01_gradient">#26000000</color>
     <color name="nomad_black_02">#111111</color>
     <color name="nomad_grey_01">#5f5f69</color>
     <color name="nomad_grey_02">#52514d</color>
