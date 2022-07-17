@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NomadWorker">
 
-        <activity android:name=".ui.splash.SplashActivity"
+        <activity
+            android:name=".ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,16 +20,20 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.signin.SignInActivity"
+        <activity
+            android:name=".ui.signin.SignInActivity"
             android:exported="false" />
 
-        <activity android:name=".ui.signup.SignUpActivity"
+        <activity
+            android:name=".ui.signup.SignUpActivity"
             android:exported="false" />
 
-        <activity android:name=".ui.onboarding.OnBoardingActivity"
+        <activity
+            android:name=".ui.onboarding.OnBoardingActivity"
             android:exported="false" />
 
-        <activity android:name=".ui.permission.CheckPermissionActivity"
+        <activity
+            android:name=".ui.permission.CheckPermissionActivity"
             android:exported="false" />
 
         <activity
