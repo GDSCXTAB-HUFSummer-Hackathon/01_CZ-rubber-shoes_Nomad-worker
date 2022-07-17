@@ -36,6 +36,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextHeadLine5.Blue">
+        <item name="android:textColor">@color/nomad_primary_blue</item>
+    </style>
+
+    <style name="TextHeadLine5.Blue.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <!-- 20dp -->
     <style name="TextHeadLine6">
         <item name="android:textSize">20dp</item>
@@ -64,6 +72,10 @@
     <!-- 16dp -->
     <style name="TextSubtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextSubtitle1.Gray01">
+        <item name="android:textColor">@color/nomad_grey_01</item>
     </style>
 
     <style name="TextSubtitle1.Bold">
@@ -112,6 +124,14 @@
         <item name="android:textColor">@color/nomad_grey_07</item>
     </style>
 
+    <style name="TextSubtitle3.Black01">
+        <item name="android:textColor">@color/nomad_black_01</item>
+    </style>
+
+    <style name="TextSubtitle3.Black02">
+        <item name="android:textColor">@color/nomad_black_02</item>
+    </style>
+
     <!-- 11dp -->
     <style name="TextCaption" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">11dp</item>
@@ -129,4 +149,28 @@
     <style name="RoundCorner10">
         <item name="cornerSize">10dp</item>
     </style>
+
+    <!-- Style to round up the image view  -->
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- BottomSheetDialog style to round up the top corner -->
+    <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/BottomSheetModelStyle</item>
+    </style>
+
+    <style name="BottomSheetModelStyle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
 </resources>
