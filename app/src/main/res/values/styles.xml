@@ -150,6 +150,10 @@
         <item name="cornerSize">10dp</item>
     </style>
 
+    <style name="RoundCorner20">
+        <item name="cornerSize">20dp</item>
+    </style>
+
     <!-- Style to round up the image view  -->
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
@@ -172,7 +176,6 @@
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
-
 
     <!-- Chip Style -->
     <style name="ChipStyle" parent="Widget.MaterialComponents.Chip.Choice">

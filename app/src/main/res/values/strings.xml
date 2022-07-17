@@ -64,4 +64,6 @@
     <string name="search_detail">상세 검색</string>
     <string name="weekday_time_label">평일</string>
     <string name="weekend_time_label">주말</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -38,4 +38,5 @@
         android:name="com.comjeong.nomadworker.ui.search.SearchOptionFragment"
         android:label="SearchOptionFragment"
         tools:layout="@layout/fragment_search_option"/>
+
 </navigation>
