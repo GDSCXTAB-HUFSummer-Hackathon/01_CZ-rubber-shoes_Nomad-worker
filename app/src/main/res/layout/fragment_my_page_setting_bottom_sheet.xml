@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:behavior_peekHeight="200dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".ui.mypage.MyPageSettingBottomSheetFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/CustomBottomSheetDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_grey06_radius_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_user_profile_modification"
+            style="@style/TextSubtitle1.Bold.White"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_blue_radius_10"
+            android:text="@string/my_page_user_profile_modification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="프로필 이미지 변경하기" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_user_logout"
+            style="@style/TextSubtitle1.Bold.White"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="26dp"
+            android:background="@drawable/bg_solid_red_radius_10"
+            android:text="@string/my_page_user_logout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_user_profile_modification" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
