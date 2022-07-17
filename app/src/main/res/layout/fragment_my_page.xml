@@ -32,7 +32,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/circleImageView"
-            tools:src="@drawable/img_home_banner" />
+            tools:src="@drawable/img_home_banner"
+            android:src="@drawable/img_home_banner"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_user_name"
@@ -47,7 +48,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_user_profile"
-            tools:text="광진구의아들" />
+            tools:text="광진구의아들"
+            android:text="광진구의아들"/>
 
         <View
             android:id="@+id/view_divider"
@@ -65,9 +67,10 @@
             android:id="@+id/rv_user_feed"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="9dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +78,8 @@
             app:layout_constraintTop_toBottomOf="@id/view_divider"
             app:spanCount="3"
             tools:listitem="@layout/item_mypage_user_feed" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
