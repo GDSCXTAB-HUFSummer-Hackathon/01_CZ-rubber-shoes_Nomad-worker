@@ -173,4 +173,13 @@
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 
+
+    <!-- Chip Style -->
+    <style name="ChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@drawable/selector_chip_background</item>
+        <item name="chipStrokeColor">@drawable/selector_chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="shapeAppearanceOverlay">@style/RoundCorner10</item>
+        <item name="android:textAppearance">@style/TextSubtitle2.Bold</item>
+    </style>
 </resources>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_place_thumbnail"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundCorner10"
+            tools:src="@drawable/img_home_banner" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_place_name"
+            style="@style/TextHeadLine6.Bold.Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
+            app:layout_constraintTop_toTopOf="@id/iv_place_thumbnail"
+            tools:text="커피에 반하다" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_place_address"
+            style="@style/TextSubtitle2.Grey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tv_place_name"
+            tools:text="용인 외대점" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_weekday_time_title"
+            style="@style/TextSubtitle2.Grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/weekday_time_label"
+            app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tv_place_address" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_weekday_time"
+            style="@style/TextSubtitle2.Grey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_weekday_time_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_weekday_time_title"
+            app:layout_constraintTop_toTopOf="@id/tv_weekday_time_title"
+            tools:text="7:00 - 24:00" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_weekend_time_title"
+            style="@style/TextSubtitle2.Grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/weekend_time_label"
+            app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tv_weekday_time_title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_weekend_time"
+            style="@style/TextSubtitle2.Grey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_weekend_time_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_weekend_time_title"
+            app:layout_constraintTop_toTopOf="@id/tv_weekend_time_title"
+            tools:text="7:00 - 24:00" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_wifi_24"
+            app:layout_constraintBottom_toBottomOf="@id/iv_place_thumbnail"
+            app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tv_weekend_time_title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_plug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_plug_24"
+            app:layout_constraintBottom_toBottomOf="@id/iv_wifi"
+            app:layout_constraintStart_toEndOf="@id/iv_wifi"
+            app:layout_constraintTop_toTopOf="@id/iv_wifi" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

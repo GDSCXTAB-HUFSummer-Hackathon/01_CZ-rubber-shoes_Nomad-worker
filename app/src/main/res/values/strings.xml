@@ -53,4 +53,15 @@
     <string name="set_current_location">현재 위치로 설정</string>
     <string name="my_page_user_profile_modification">프로필 이미지 변경하기</string>
     <string name="my_page_user_logout">로그아웃</string>
+    <string name="seoul">서울</string>
+    <string name="jeju">제주</string>
+    <string name="busan">부산</string>
+    <string name="gangneung">강릉</string>
+    <string name="cafe">카페</string>
+    <string name="office">오피스</string>
+    <string name="location">지역</string>
+    <string name="place">장소</string>
+    <string name="search_detail">상세 검색</string>
+    <string name="weekday_time_label">평일</string>
+    <string name="weekend_time_label">주말</string>
 </resources>
