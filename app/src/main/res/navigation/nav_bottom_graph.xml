@@ -21,11 +21,21 @@
         android:id="@+id/navigation_search"
         android:name="com.comjeong.nomadworker.ui.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_search_to_search_option"
+            app:destination="@id/navigation_search_option" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_my_page"
         android:name="com.comjeong.nomadworker.ui.mypage.MyPageFragment"
         android:label="MyPageFragment"
         tools:layout="@layout/fragment_my_page" />
+
+    <fragment
+        android:id="@+id/navigation_search_option"
+        android:name="com.comjeong.nomadworker.ui.search.SearchOptionFragment"
+        android:label="SearchOptionFragment"
+        tools:layout="@layout/fragment_search_option"/>
 </navigation>
