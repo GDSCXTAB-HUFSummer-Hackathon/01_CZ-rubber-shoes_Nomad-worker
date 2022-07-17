@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_nearby_thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundCorner10"
+            tools:src="@drawable/img_home_banner" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_black_gradient"
+            app:layout_constraintBottom_toBottomOf="@id/iv_nearby_thumbnail"
+            app:layout_constraintEnd_toEndOf="@id/iv_nearby_thumbnail"
+            app:layout_constraintStart_toStartOf="@id/iv_nearby_thumbnail"
+            app:layout_constraintTop_toTopOf="@id/iv_nearby_thumbnail" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_nearby_address"
+            style="@style/TextSubtitle3.Grey07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_nearby_name"
+            app:layout_constraintStart_toStartOf="@id/iv_nearby_thumbnail"
+            tools:text="서울" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_nearby_name"
+            style="@style/TextHeadLine5.White.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintBottom_toBottomOf="@id/iv_nearby_thumbnail"
+            app:layout_constraintEnd_toEndOf="@id/iv_nearby_thumbnail"
+            app:layout_constraintStart_toStartOf="@id/iv_nearby_thumbnail"
+            tools:text="커피에 반하다" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
