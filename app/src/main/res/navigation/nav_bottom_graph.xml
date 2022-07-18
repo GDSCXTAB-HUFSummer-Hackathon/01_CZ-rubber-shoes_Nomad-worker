@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_search_to_search_option"
             app:destination="@id/navigation_search_option" />
+        <action
+            android:id="@+id/action_search_to_place_detail"
+            app:destination="@id/navigation_place_detail" />
     </fragment>
 
     <fragment
@@ -39,4 +42,9 @@
         android:label="SearchOptionFragment"
         tools:layout="@layout/fragment_search_option"/>
 
+    <fragment
+        android:id="@+id/navigation_place_detail"
+        android:name="com.comjeong.nomadworker.ui.place.PlaceDetailFragment"
+        android:label="PlaceDetailFragment"
+        tools:layout="@layout/fragment_place_detail"/>
 </navigation>

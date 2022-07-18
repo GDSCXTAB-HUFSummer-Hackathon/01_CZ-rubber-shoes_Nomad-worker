@@ -69,6 +69,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextHeadLine6.Bold.Grey07">
+        <item name="android:textColor">@color/nomad_grey_07</item>
+    </style>
+
     <!-- 16dp -->
     <style name="TextSubtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textSize">16dp</item>
@@ -76,6 +80,10 @@
 
     <style name="TextSubtitle1.Gray01">
         <item name="android:textColor">@color/nomad_grey_01</item>
+    </style>
+
+    <style name="TextSubtitle1.Black01">
+        <item name="android:textColor">@color/nomad_black_01</item>
     </style>
 
     <style name="TextSubtitle1.Bold">
@@ -92,6 +100,10 @@
 
     <style name="TextSubtitle1.Bold.Blue">
         <item name="android:textColor">@color/nomad_primary_blue</item>
+    </style>
+
+    <style name="TextSubtitle1.Bold.Grey07">
+        <item name="android:textColor">@color/nomad_grey_07</item>
     </style>
 
     <!-- 14dp -->

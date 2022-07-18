@@ -48,7 +48,7 @@
                         android:maxLines="2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        tools:text="닉네임님, 오늘은\n어디서 근무하시나요?" />
+                        android:text="닉네임님, 오늘은\n어디서 근무하시나요?" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.Toolbar
