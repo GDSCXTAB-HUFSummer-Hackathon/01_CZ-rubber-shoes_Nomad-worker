@@ -1,6 +1,7 @@
-package com.comjeong.nomadworker.data.datasource.home
+package com.comjeong.nomadworker.data.datasource.local.home
 
 import com.comjeong.nomadworker.common.AssetLoader
+import com.comjeong.nomadworker.data.datasource.source.HomeDataSource
 import com.comjeong.nomadworker.model.Category
 import com.google.gson.Gson
 
