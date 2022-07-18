@@ -15,7 +15,11 @@
         android:id="@+id/navigation_feed"
         android:name="com.comjeong.nomadworker.ui.feed.FeedFragment"
         android:label="FeedFragment"
-        tools:layout="@layout/fragment_feed" />
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_navigation_new_feed_to_navigation_select_photo"
+            app:destination="@id/navigation_select_photo" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
@@ -41,9 +45,47 @@
         android:name="com.comjeong.nomadworker.ui.search.SearchOptionFragment"
         android:label="SearchOptionFragment"
         tools:layout="@layout/fragment_search_option"/>
+
     <fragment
         android:id="@+id/navigation_place_detail"
         android:name="com.comjeong.nomadworker.ui.place.PlaceDetailFragment"
         android:label="PlaceDetailFragment"
         tools:layout="@layout/fragment_place_detail"/>
+    <fragment
+        android:id="@+id/navigation_select_photo"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedPhotoChoiceFragment"
+        android:label="NewFeedPhotoChoiceFragment"
+        tools:layout="@layout/fragment_new_feed_photo_choice" >
+        <action
+            android:id="@+id/action_navigation_select_photo_to_navigation_write_content"
+            app:destination="@id/navigation_write_content" />
+
+        <action
+            android:id="@+id/action_navigation_select_photo_to_navigation_feed"
+            app:destination="@id/navigation_feed" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_write_content"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedContentChoiceFragment"
+        android:label="NewFeedContentChoiceFragment"
+        tools:layout="@layout/fragment_new_feed_content_choice">
+        <action
+            android:id="@+id/action_navigation_write_content_to_navigation_write_choice_place"
+            app:destination="@id/navigation_choice_place" />
+
+        <action
+            android:id="@+id/action_navigation_write_content_to_navigation_feed"
+            app:destination="@id/navigation_feed" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_choice_place"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedPlaceChoiceFragment"
+        android:label="NewFeedPlaceChoiceFragment"
+        tools:layout="@layout/fragment_new_feed_place_choice">
+        <action
+            android:id="@+id/action_navigation_choice_place_to_navigation_feed"
+            app:destination="@id/navigation_feed" />
+    </fragment>
 </navigation>

@@ -64,4 +64,12 @@
     <string name="search_detail">상세 검색</string>
     <string name="weekday_time_label">평일</string>
     <string name="weekend_time_label">주말</string>
+    <string name="new_feed_content_title">게시글 문구를 입력하세요.</string>
+    <string name="new_feed_content_subtitle">뭐라고 적는게 좋을까요?</string>
+    <string name="new_feed_content_input_text_hint">ex) 조용하고 산 좋고 물 좋은 모현으로 오세요.</string>
+    <string name="new_feed_photo_title">사진을 선택하세요.</string>
+    <string name="new_feed_photo_subtitle">사진은 최대 1장 선택 가능합니다.</string>
+    <string name="new_feed_place_title">장소를 입력하세요.</string>
+    <string name="new_feed_place_subtitle">검색바에 원하는 곳을 입력해주세요.</string>
+
 </resources>
