@@ -2,8 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.feed.NewFeedContentChoiceFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
-            android:text="게시글 문구를 입력하세요."
+            android:text="@string/new_feed_content_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pb_status"
             tools:text="게시글 문구를 입력하세요." />
@@ -51,12 +49,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:text="뭐라고 적는게 좋을까요?"
+            android:text="@string/new_feed_content_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_main_title"
             tools:text="뭐라고 적는게 좋을까요?" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tv_content_input_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -65,17 +63,19 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="50dp"
             android:background="@drawable/bg_white_radius_10_stroke_bluegrey"
-            android:hint="ex) 압도적인 뷰, 최고의 근무 환경, 집중이 되는 공간, 모현으로 오세요."
+            android:gravity="top"
+            android:hint="@string/new_feed_content_input_text_hint"
             android:padding="12dp"
+            android:textSize="14sp"
             android:scrollbarStyle="outsideInset"
             android:scrollbars="vertical"
-            app:layout_constraintBottom_toTopOf="@id/btn_done_to_next_procedure"
+            app:layout_constraintBottom_toTopOf="@id/btn_done_to_write_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_sub_title" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_done_to_next_procedure"
+            android:id="@+id/btn_done_to_write_content"
             style="@style/TextSubtitle1.Bold.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/bg_grey06_radius_10"
-            android:text="다음"
+            android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

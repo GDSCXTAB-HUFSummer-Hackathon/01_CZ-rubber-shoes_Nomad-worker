@@ -2,8 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.feed.NewFeedPhotoChoiceFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/menu_toolbar"
             app:navigationIcon="@drawable/ic_back_24"
-            app:title="게시물 " />
+            app:title="게시물 작성" />
 
         <ProgressBar
             android:id="@+id/pb_status"
@@ -40,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
-            android:text="사진을 선택하세요."
+            android:text="@string/new_feed_photo_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pb_status"
             tools:text="사진을 선택하세요." />
@@ -51,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:text="사진은 최대 1장 선택 가능합니다."
+            android:text="@string/new_feed_photo_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_main_title"
             tools:text="사진은 최대 1장 선택 가능합니다." />
@@ -81,7 +79,7 @@
             tools:src="@drawable/img_home_banner" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_done_to_next_procedure"
+            android:id="@+id/btn_done_to_select_photo"
             style="@style/TextSubtitle1.Bold.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -89,7 +87,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/bg_grey06_radius_10"
-            android:text="다음"
+            android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
