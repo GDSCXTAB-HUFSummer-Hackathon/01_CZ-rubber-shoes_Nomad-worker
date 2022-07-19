@@ -2,13 +2,21 @@ package com.comjeong.nomadworker.data.network.api
 
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
 import com.comjeong.nomadworker.data.model.signup.SignUpResponseData
+import com.comjeong.nomadworker.data.model.signup.UserEmailResponseData
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface AuthApi {
 
-    @POST("api/user/signup")
+    @POST("user/signup")
     suspend fun postSignUp(
         @Body body: SignUpRequestData
     ): SignUpResponseData
+
+    @GET("user/mail")
+    suspend fun getUserEmailVerify(
+        @Query("userEmail") userEmail: String
+    ): UserEmailResponseData
 }

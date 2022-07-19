@@ -1,6 +1,5 @@
 package com.comjeong.nomadworker.domain.model
 
-import com.comjeong.nomadworker.model.UserInfo
 import com.google.gson.annotations.SerializedName
 
 data class SignUpResult(
