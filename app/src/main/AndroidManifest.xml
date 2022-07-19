@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NomadWorker">
-
+        <activity
+            android:name=".ui.feed.NewFeedActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true">
@@ -19,23 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.signin.SignInActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.signup.SignUpActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.onboarding.OnBoardingActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.permission.CheckPermissionActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.MainActivity"
             android:exported="false" />

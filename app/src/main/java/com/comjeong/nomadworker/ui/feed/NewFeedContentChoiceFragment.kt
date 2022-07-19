@@ -22,7 +22,7 @@ class NewFeedContentChoiceFragment : BaseFragment<FragmentNewFeedContentChoiceBi
 
     private fun bindViews(){
         binding.btnDoneToWriteContent.setOnClickListener {
-            navigate(R.id.action_navigation_write_content_to_navigation_write_choice_place)
+            navigate(R.id.action_navigation_content_choice_to_navigation_place_choice)
         }
 
         binding.tbNewFeedTopBanner.setNavigationOnClickListener {
@@ -34,7 +34,7 @@ class NewFeedContentChoiceFragment : BaseFragment<FragmentNewFeedContentChoiceBi
         binding.tbNewFeedTopBanner.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.close -> {
-                    setNewFeedCloseDialog(requireContext(),"contentChoice")
+                    setNewFeedCloseDialog(requireContext())
                     true
                 }
                 else -> false
