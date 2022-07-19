@@ -29,7 +29,7 @@ class NewFeedPlaceChoiceFragment : BaseFragment<FragmentNewFeedPlaceChoiceBindin
 
         binding.btnDoneToChoicePlace.setOnClickListener {
             Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show()
-            navigate(R.id.action_navigation_choice_place_to_navigation_feed)
+            requireActivity().finish()
         }
     }
 
@@ -37,7 +37,7 @@ class NewFeedPlaceChoiceFragment : BaseFragment<FragmentNewFeedPlaceChoiceBindin
         binding.tbNewFeedTopBanner.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.close -> {
-                    setNewFeedCloseDialog(requireContext(),"placeChoice")
+                    setNewFeedCloseDialog(requireContext())
                     true
                 }
                 else -> false

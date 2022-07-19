@@ -71,5 +71,6 @@
     <string name="new_feed_photo_subtitle">사진은 최대 1장 선택 가능합니다.</string>
     <string name="new_feed_place_title">장소를 입력하세요.</string>
     <string name="new_feed_place_subtitle">검색바에 원하는 곳을 입력해주세요.</string>
+    <string name="register_feed">등록하기</string>
 
 </resources>

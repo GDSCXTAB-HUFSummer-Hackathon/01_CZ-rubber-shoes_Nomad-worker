@@ -23,23 +23,13 @@ class NewFeedPhotoChoiceFragment : BaseFragment<FragmentNewFeedPhotoChoiceBindin
 
     private fun bindViews(){
         binding.btnDoneToSelectPhoto.setOnClickListener {
-            navigate(R.id.action_navigation_select_photo_to_navigation_write_content)
+            navigate(R.id.action_navigation_photo_choice_to_navigation_content_choice)
         }
     }
 
     private fun bindCancelFeedPosting(){
         binding.tbNewFeedTopBanner.setNavigationOnClickListener {
-            setNewFeedCloseDialog(requireActivity(),"photoChoice")
-        }
-
-        binding.tbNewFeedTopBanner.setOnMenuItemClickListener { item ->
-            when (item.itemId) {
-                R.id.close -> {
-                    setNewFeedCloseDialog(requireContext(),"photoChoice")
-                    true
-                }
-                else -> false
-            }
+            setNewFeedCloseDialog(requireActivity())
         }
     }
 }

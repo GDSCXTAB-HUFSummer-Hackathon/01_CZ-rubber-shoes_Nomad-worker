@@ -20,16 +20,12 @@ object DialogUtil {
         builder.show()
     }
 
-    fun Fragment.setNewFeedCloseDialog(context: Context, callerId : String) {
+    fun Fragment.setNewFeedCloseDialog(context: Context) {
         val builder = AlertDialog.Builder(context)
             .setTitle("피드작성 취소")
             .setMessage("정말로 피드작성을 취소하시겠습니까?")
             .setPositiveButton("예") { _, _ ->
-                when(callerId){
-                    "photoChoice" -> navigate(R.id.action_navigation_select_photo_to_navigation_feed)
-                    "contentChoice" -> navigate(R.id.action_navigation_write_content_to_navigation_feed)
-                    "placeChoice" -> navigate(R.id.action_navigation_choice_place_to_navigation_feed)
-                }
+                this.requireActivity().finish()
             }
             .setNegativeButton("아니오",null)
 

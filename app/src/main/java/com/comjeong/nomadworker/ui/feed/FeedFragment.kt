@@ -12,12 +12,14 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(R.layout.fragment_feed) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        moveNextProcedure()
+        bindCreateFeedPage()
+
     }
 
-    private fun moveNextProcedure(){
+    private fun bindCreateFeedPage(){
         binding.btnNewFeed.setOnClickListener {
-            navigate(R.id.action_navigation_new_feed_to_navigation_select_photo)
+            navigate(R.id.action_navigation_feed_to_newFeedActivity)
         }
     }
+
 }
