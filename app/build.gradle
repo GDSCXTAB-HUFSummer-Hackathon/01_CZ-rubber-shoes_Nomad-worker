@@ -62,9 +62,13 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
-
-    // etc
     implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // Dependency Injection
+    implementation "io.insert-koin:koin-android:$koinVersion"
+    testImplementation "io.insert-koin:koin-test:3.1.5"
+
+    // Third-Party
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
     implementation "com.jakewharton.timber:timber:$timberVersion"

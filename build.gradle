@@ -19,6 +19,7 @@ ext {
     retrofitVersion = '2.9.0'
     okhttpVersion = '4.9.3'
     coroutineVersion = '1.6.1'
+    koinVersion = '3.1.5'
 }
 task clean(type: Delete) {
     delete rootProject.buildDir
