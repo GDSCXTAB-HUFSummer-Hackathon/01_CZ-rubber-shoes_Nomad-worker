@@ -2,8 +2,10 @@ package com.comjeong.nomadworker.data.mapper
 
 import com.comjeong.nomadworker.data.model.signup.SignUpResponseData
 import com.comjeong.nomadworker.data.model.signup.UserEmailResponseData
+import com.comjeong.nomadworker.data.model.signup.UserNicknameResponseData
 import com.comjeong.nomadworker.domain.model.SignUpResult
 import com.comjeong.nomadworker.domain.model.UserEmailResult
+import com.comjeong.nomadworker.domain.model.UserNicknameResult
 
 object SignUpMapper {
 
@@ -25,6 +27,13 @@ object SignUpMapper {
             data = UserEmailResult.Result(
                 verificationCode = responseData.data.verificationCode
             )
+        )
+    }
+
+    fun mapToUserNicknameResult(responseData: UserNicknameResponseData): UserNicknameResult {
+        return UserNicknameResult(
+            message = responseData.message,
+            status = responseData.status
         )
     }
 }
