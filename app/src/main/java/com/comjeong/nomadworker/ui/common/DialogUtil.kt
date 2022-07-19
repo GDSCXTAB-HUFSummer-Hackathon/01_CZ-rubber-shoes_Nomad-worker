@@ -3,6 +3,8 @@ package com.comjeong.nomadworker.ui.common
 import android.app.AlertDialog
 import android.content.Context
 import androidx.fragment.app.Fragment
+import com.comjeong.nomadworker.R
+import com.comjeong.nomadworker.ui.common.NavigationUtil.navigate
 
 object DialogUtil {
 
@@ -14,6 +16,18 @@ object DialogUtil {
                 this.requireActivity().finish()
             }
             .setNegativeButton("취소", null)
+
+        builder.show()
+    }
+
+    fun Fragment.setNewFeedCloseDialog(context: Context) {
+        val builder = AlertDialog.Builder(context)
+            .setTitle("피드작성 취소")
+            .setMessage("정말로 피드작성을 취소하시겠습니까?")
+            .setPositiveButton("예") { _, _ ->
+                this.requireActivity().finish()
+            }
+            .setNegativeButton("아니오",null)
 
         builder.show()
     }

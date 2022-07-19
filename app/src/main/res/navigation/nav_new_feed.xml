@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_new_feed"
+    app:startDestination="@id/navigation_photo_choice">
+
+    <fragment
+        android:id="@+id/navigation_photo_choice"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedPhotoChoiceFragment"
+        android:label="fragment_photo_choice"
+        tools:layout="@layout/fragment_new_feed_photo_choice" >
+        <action
+            android:id="@+id/action_navigation_photo_choice_to_navigation_content_choice"
+            app:destination="@id/navigation_content_choice" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_content_choice"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedContentChoiceFragment"
+        android:label="fragment_new_feed_content_choice"
+        tools:layout="@layout/fragment_new_feed_content_choice" >
+        <action
+            android:id="@+id/action_navigation_content_choice_to_navigation_place_choice"
+            app:destination="@id/navigation_place_choice" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_place_choice"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedPlaceChoiceFragment"
+        android:label="fragment_new_feed_place_choice"
+        tools:layout="@layout/fragment_new_feed_place_choice" />
+
+
+</navigation>

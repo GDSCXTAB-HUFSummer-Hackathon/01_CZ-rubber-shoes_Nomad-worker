@@ -15,7 +15,11 @@
         android:id="@+id/navigation_feed"
         android:name="com.comjeong.nomadworker.ui.feed.FeedFragment"
         android:label="FeedFragment"
-        tools:layout="@layout/fragment_feed" />
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_navigation_feed_to_newFeedActivity"
+            app:destination="@id/navigation_new_feed_activity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
@@ -41,9 +45,17 @@
         android:name="com.comjeong.nomadworker.ui.search.SearchOptionFragment"
         android:label="SearchOptionFragment"
         tools:layout="@layout/fragment_search_option"/>
+
     <fragment
         android:id="@+id/navigation_place_detail"
         android:name="com.comjeong.nomadworker.ui.place.PlaceDetailFragment"
         android:label="PlaceDetailFragment"
         tools:layout="@layout/fragment_place_detail"/>
+
+    <activity
+        android:id="@+id/navigation_new_feed_activity"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedActivity"
+        android:label="activity_new_feed"
+        tools:layout="@layout/activity_new_feed" />
+
 </navigation>
