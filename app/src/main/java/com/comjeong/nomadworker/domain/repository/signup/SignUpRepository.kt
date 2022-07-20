@@ -1,9 +1,9 @@
-package com.comjeong.nomadworker.domain
+package com.comjeong.nomadworker.domain.repository.signup
 
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
-import com.comjeong.nomadworker.domain.model.SignUpResult
-import com.comjeong.nomadworker.domain.model.UserEmailResult
-import com.comjeong.nomadworker.domain.model.UserNicknameResult
+import com.comjeong.nomadworker.domain.model.signup.SignUpResult
+import com.comjeong.nomadworker.domain.model.signup.UserEmailResult
+import com.comjeong.nomadworker.domain.model.signup.UserNicknameResult
 
 interface SignUpRepository {
     suspend fun postSignUp(body: SignUpRequestData): SignUpResult

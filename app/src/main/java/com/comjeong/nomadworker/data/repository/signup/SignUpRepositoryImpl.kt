@@ -1,12 +1,12 @@
-package com.comjeong.nomadworker.data.repository
+package com.comjeong.nomadworker.data.repository.signup
 
 import com.comjeong.nomadworker.data.datasource.source.SignUpDataSource
 import com.comjeong.nomadworker.data.mapper.SignUpMapper
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
-import com.comjeong.nomadworker.domain.SignUpRepository
-import com.comjeong.nomadworker.domain.model.SignUpResult
-import com.comjeong.nomadworker.domain.model.UserEmailResult
-import com.comjeong.nomadworker.domain.model.UserNicknameResult
+import com.comjeong.nomadworker.domain.repository.signup.SignUpRepository
+import com.comjeong.nomadworker.domain.model.signup.SignUpResult
+import com.comjeong.nomadworker.domain.model.signup.UserEmailResult
+import com.comjeong.nomadworker.domain.model.signup.UserNicknameResult
 
 class SignUpRepositoryImpl(private val dataSource: SignUpDataSource) : SignUpRepository {
     override suspend fun postSignUp(body: SignUpRequestData): SignUpResult {

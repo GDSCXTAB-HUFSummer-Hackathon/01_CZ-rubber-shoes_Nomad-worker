@@ -3,9 +3,9 @@ package com.comjeong.nomadworker.data.mapper
 import com.comjeong.nomadworker.data.model.signup.SignUpResponseData
 import com.comjeong.nomadworker.data.model.signup.UserEmailResponseData
 import com.comjeong.nomadworker.data.model.signup.UserNicknameResponseData
-import com.comjeong.nomadworker.domain.model.SignUpResult
-import com.comjeong.nomadworker.domain.model.UserEmailResult
-import com.comjeong.nomadworker.domain.model.UserNicknameResult
+import com.comjeong.nomadworker.domain.model.signup.SignUpResult
+import com.comjeong.nomadworker.domain.model.signup.UserEmailResult
+import com.comjeong.nomadworker.domain.model.signup.UserNicknameResult
 
 object SignUpMapper {
 

@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.comjeong.nomadworker.common.Event
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
-import com.comjeong.nomadworker.domain.SignUpRepository
-import com.comjeong.nomadworker.domain.model.SignUpResult
+import com.comjeong.nomadworker.domain.repository.signup.SignUpRepository
+import com.comjeong.nomadworker.domain.model.signup.SignUpResult
 import com.comjeong.nomadworker.model.UserInfo
 import kotlinx.coroutines.launch
 import timber.log.Timber
