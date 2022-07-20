@@ -72,5 +72,6 @@
     <string name="new_feed_place_title">장소를 입력하세요.</string>
     <string name="new_feed_place_subtitle">검색바에 원하는 곳을 입력해주세요.</string>
     <string name="register_feed">등록하기</string>
+    <string name="check_duplicate_nickname">닉네임 중복확인</string>
 
 </resources>

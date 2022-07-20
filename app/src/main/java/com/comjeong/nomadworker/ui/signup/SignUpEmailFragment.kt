@@ -4,17 +4,24 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
 import com.comjeong.nomadworker.R
 import com.comjeong.nomadworker.common.Constants.VERIFICATION_CODE
+import com.comjeong.nomadworker.common.EventObserver
 import com.comjeong.nomadworker.databinding.FragmentSignUpEmailBinding
 import com.comjeong.nomadworker.ui.common.BaseFragment
 import com.comjeong.nomadworker.ui.common.DialogUtil.setSignUpCloseDialog
 import com.comjeong.nomadworker.ui.common.NavigationUtil.navigateWithBundle
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import timber.log.Timber
 
 class SignUpEmailFragment :
     BaseFragment<FragmentSignUpEmailBinding>(R.layout.fragment_sign_up_email) {
+
+    private val viewModel: SignUpViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,13 +56,25 @@ class SignUpEmailFragment :
             override fun afterTextChanged(s: Editable?) {
                 if (isValidatePattern()) {
                     handleNextButton(true)
-                    moveNextStep()
                 } else {
                     handleNextButton(false)
-
                 }
             }
         })
+
+        binding.btnVerifyEmail.setOnClickListener {
+            val email = binding.etEmail.text.toString().trim()
+            viewModel.checkDuplicateEmail(email)
+
+            viewModel.isEmailDuplicated.observe(viewLifecycleOwner, EventObserver { isDuplicated ->
+                if (!isDuplicated) {
+                    observeEmailCode()
+                } else {
+                    handleNextButton(false)
+                    Toast.makeText(requireContext(), "중복된 이메일입니다.", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
     }
 
     private fun handleNextButton(canEnable: Boolean) {
@@ -83,12 +102,6 @@ class SignUpEmailFragment :
                 )
             )
             true
-//        } else if (pattern.matcher(email).matches() && isExistingEmail()) {
-//            binding.etEmail.setBackgroundResource(R.drawable.bg_red_radius_10)
-//            binding.tvStatusMessage.visibility = View.VISIBLE
-//            binding.tvStatusMessage.text = getString(R.string.already_user)
-//            binding.tvStatusMessage.setTextColor(ContextCompat.getColor(requireActivity(), R.color.nomad_accent_red))
-//            false
         } else {
             binding.etEmail.setBackgroundResource(R.drawable.bg_red_radius_10)
             binding.tvStatusMessage.visibility = View.VISIBLE
@@ -103,32 +116,16 @@ class SignUpEmailFragment :
         }
     }
 
-    /**
-     * 임시 구현
-     * 유효 이메일 API 호출 필요
-     * Debounce로 API 호출하면서 존재하는 Email인지 확인
-     */
-//    private fun isExistingEmail(): Boolean {
-//        val email = binding.etEmail.text.toString().trim()
-//        val sampleEmail = "test@naver.com"
-//        return email == sampleEmail
-//    }
-
-    private fun moveNextStep() {
-        val verificationCode = callEmailVerifyAPI()
-
-        binding.btnVerifyEmail.setOnClickListener {
-            navigateWithBundle(R.id.action_email_to_verify, bundleOf(
-                VERIFICATION_CODE to verificationCode
-            ))
+    private fun observeEmailCode() {
+        viewModel.emailCode.observe(viewLifecycleOwner) { emailCode ->
+            Timber.d(emailCode)
+            viewModel.email = binding.etEmail.text.toString().trim()
+            navigateWithBundle(
+                R.id.action_email_to_verify, bundleOf(
+                    VERIFICATION_CODE to emailCode
+                )
+            )
         }
     }
 
-    /**
-     * 이메일 인증 API 호출
-     * 추후에 ViewModel을 통해 구현해야 함
-     */
-    private fun callEmailVerifyAPI(): String {
-        return "aaa"
-    }
 }

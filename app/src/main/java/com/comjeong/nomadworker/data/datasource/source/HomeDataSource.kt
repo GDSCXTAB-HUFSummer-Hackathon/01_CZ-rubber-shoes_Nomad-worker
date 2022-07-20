@@ -1,4 +1,4 @@
-package com.comjeong.nomadworker.data.datasource.home
+package com.comjeong.nomadworker.data.datasource.source
 
 import com.comjeong.nomadworker.model.Category
 
