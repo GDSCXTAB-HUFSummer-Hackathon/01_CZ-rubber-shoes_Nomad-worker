@@ -1,5 +1,7 @@
 package com.comjeong.nomadworker.data.network.api
 
+import com.comjeong.nomadworker.data.model.signin.SignInRequestData
+import com.comjeong.nomadworker.data.model.signin.SignInResponseData
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
 import com.comjeong.nomadworker.data.model.signup.SignUpResponseData
 import com.comjeong.nomadworker.data.model.signup.UserEmailResponseData
@@ -26,4 +28,8 @@ interface AuthApi {
         @Query("userNickname") nickname: String
     ): UserNicknameResponseData
 
+    @POST("user/signin")
+    suspend fun postSignIn(
+        @Body body: SignInRequestData
+    ): SignInResponseData
 }
