@@ -7,6 +7,7 @@ import com.comjeong.nomadworker.data.network.api.AuthApi
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,17 +16,14 @@ import retrofit2.create
 val networkModule = module {
     single {
         OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
             .addNetworkInterceptor(NetworkInterceptor())
             .addInterceptor(Interceptor { chain ->
                 chain.proceed(
-                    chain.request().newBuilder()
-                        .addHeader(
-                            "ACCESS_TOKEN",
-                            NomadSharedPreferences.getAccessToken()!!
-                        )
-                        .build()
+                    chain.request().newBuilder().build()
                 )
             })
+            .build()
     }
 
     single<Retrofit> {
