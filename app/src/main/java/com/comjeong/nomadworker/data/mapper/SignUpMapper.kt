@@ -11,6 +11,8 @@ object SignUpMapper {
 
     fun mapToSignUpResult(responseData: SignUpResponseData ): SignUpResult {
         return SignUpResult(
+            message = responseData.message,
+            status = responseData.status,
             data = SignUpResult.MemberInfo(
                 userNickname = responseData.data.userNickname,
                 accessToken = responseData.data.accessToken,

@@ -42,6 +42,20 @@ class SignUpNickNameFragment :
         bindViews()
         setNavigation()
         observeDuplicateNickname()
+        observeSignUpSuccess()
+    }
+
+    private fun observeSignUpSuccess() {
+        viewModel.isSignUpSuccess.observe(viewLifecycleOwner, EventObserver<Boolean> { isSuccess ->
+            if (isSuccess) {
+                Toast.makeText(requireContext(), "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                navigate(R.id.action_signup_to_on_boarding)
+                requireActivity().finish()
+            } else {
+                Toast.makeText(requireContext(), "이미 가입된 사용자입니다.", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     private fun observeDuplicateNickname() {
@@ -49,6 +63,7 @@ class SignUpNickNameFragment :
             if (!isDuplicated) {
                 // 가입하기 활성화
                 Toast.makeText(requireContext(), R.string.usable_nickname, Toast.LENGTH_SHORT).show()
+                viewModel.nickname = binding.etNickname.text.toString().trim()
                 handleNextButton(true)
             } else {
                 Toast.makeText(requireContext(), R.string.unusable_nickname, Toast.LENGTH_SHORT).show()
@@ -93,8 +108,7 @@ class SignUpNickNameFragment :
         }
 
         binding.btnComplete.setOnClickListener {
-            navigate(R.id.action_signup_to_on_boarding)
-            requireActivity().finish()
+            viewModel.signUp()
         }
     }
 
@@ -102,38 +116,6 @@ class SignUpNickNameFragment :
         val nickname = binding.etNickname.text.toString().trim()
 
         viewModel.checkDuplicateNickname(nickname)
-    }
-
-    /**
-     * 닉네임 확인 API Call
-     * 메소드 리팩토링 필요!!
-     */
-    private fun isExistingNickName(): Boolean {
-        val inputNickName = binding.etNickname.text.toString().trim()
-        val apiNickName = "AAA"
-        return if (inputNickName == apiNickName) {
-            binding.etNickname.setBackgroundResource(R.drawable.bg_red_radius_10)
-            binding.tvStatusMessage.visibility = View.VISIBLE
-            binding.tvStatusMessage.text = getString(R.string.unusable_nickname)
-            binding.tvStatusMessage.setTextColor(
-                ContextCompat.getColor(
-                    requireActivity(),
-                    R.color.nomad_accent_red
-                )
-            )
-            true
-        } else {
-            binding.etNickname.setBackgroundResource(R.drawable.bg_green_radius_10)
-            binding.tvStatusMessage.visibility = View.VISIBLE
-            binding.tvStatusMessage.text = getString(R.string.usable_nickname)
-            binding.tvStatusMessage.setTextColor(
-                ContextCompat.getColor(
-                    requireActivity(),
-                    R.color.nomad_positive_green
-                )
-            )
-            false
-        }
     }
 
     private fun handleNextButton(canEnable: Boolean) {

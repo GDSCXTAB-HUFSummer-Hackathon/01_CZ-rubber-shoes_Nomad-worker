@@ -11,10 +11,13 @@ import com.comjeong.nomadworker.ui.common.BaseFragment
 import com.comjeong.nomadworker.ui.common.DialogUtil.setSignUpCloseDialog
 import com.comjeong.nomadworker.ui.common.NavigationUtil.navigate
 import com.comjeong.nomadworker.ui.common.NavigationUtil.navigateUp
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.regex.Pattern
 
 class SignUpPasswordFragment :
     BaseFragment<FragmentSignUpPasswordBinding>(R.layout.fragment_sign_up_password) {
+
+    private val viewModel: SignUpViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -150,6 +153,8 @@ class SignUpPasswordFragment :
     private fun moveNextStep() {
         binding.btnNext.setOnClickListener {
             navigate(R.id.action_password_to_nickname)
+
+            viewModel.password = binding.etConfirmPassword.text.toString().trim()
         }
     }
 

@@ -119,6 +119,7 @@ class SignUpEmailFragment :
     private fun observeEmailCode() {
         viewModel.emailCode.observe(viewLifecycleOwner) { emailCode ->
             Timber.d(emailCode)
+            viewModel.email = binding.etEmail.text.toString().trim()
             navigateWithBundle(
                 R.id.action_email_to_verify, bundleOf(
                     VERIFICATION_CODE to emailCode

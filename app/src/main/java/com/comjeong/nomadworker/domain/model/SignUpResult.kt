@@ -3,6 +3,8 @@ package com.comjeong.nomadworker.domain.model
 import com.google.gson.annotations.SerializedName
 
 data class SignUpResult(
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: Int,
     @SerializedName("data") val data: MemberInfo
 ) {
     data class MemberInfo(
