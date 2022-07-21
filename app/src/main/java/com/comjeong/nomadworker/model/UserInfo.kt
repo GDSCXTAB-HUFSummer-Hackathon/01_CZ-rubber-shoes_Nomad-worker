@@ -5,8 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class UserInfo(
-    val userNickname: String,
-    val accessToken: String,
+    val userNickname: String?,
+    val accessToken: String?,
     val latitude: Float,
-    val longitude: Float
+    val longitude: Float,
+    val isLogin: Boolean
 ) : Parcelable
