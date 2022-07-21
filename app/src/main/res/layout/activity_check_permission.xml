@@ -69,64 +69,6 @@
             app:layout_constraintStart_toEndOf="@id/iv_location_permission"
             app:layout_constraintTop_toBottomOf="@id/tv_location" />
 
-        <View
-            android:id="@+id/view_divider"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@color/nomad_blue_grey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_location_permission" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_optional_permission_title"
-            style="@style/TextSubtitle1.Bold.Blue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/optional_permission"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_divider" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_camera_permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:padding="8dp"
-            android:src="@drawable/ic_camera_permission"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_optional_permission_title" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_camera"
-            style="@style/TextSubtitle2.Bold.Blue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/camera"
-            app:layout_constraintStart_toEndOf="@id/iv_camera_permission"
-            app:layout_constraintTop_toTopOf="@id/iv_camera_permission" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_camera_description"
-            style="@style/TextSubtitle2.Grey"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="24dp"
-            android:text="@string/camera_desc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_camera_permission"
-            app:layout_constraintTop_toBottomOf="@id/tv_camera" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_storage_permission"
             android:layout_width="wrap_content"
@@ -136,7 +78,7 @@
             android:padding="8dp"
             android:src="@drawable/ic_storage_permission"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_camera_permission" />
+            app:layout_constraintTop_toBottomOf="@id/iv_location_permission" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_storage"
@@ -198,6 +140,44 @@
             app:layout_constraintStart_toEndOf="@id/iv_notice"
             app:layout_constraintTop_toTopOf="@id/iv_notice" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_snd_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="6dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_notice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_notice" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_snd_notice"
+            style="@style/TextSubtitle2.Red"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/permission_notice_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_snd_notice"
+            app:layout_constraintTop_toTopOf="@id/iv_snd_notice" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_permission"
+            style="@style/TextSubtitle1.Bold.Blue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_white_radius_10_stroke_blue"
+            android:text="@string/permission_check_button"
+            app:layout_constraintBottom_toTopOf="@id/btn_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
             style="@style/TextSubtitle1.Bold.White"
@@ -211,5 +191,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
