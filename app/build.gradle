@@ -3,7 +3,13 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+def GOOGLE_MAPS_SDK_KEY = properties.getProperty("API_KEY")
 
 android {
     compileSdk 31
@@ -72,6 +78,9 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
     implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    // Google Maps SDK
+    implementation "com.google.android.gms:play-services-maps:$googleMapsVersion"
 
     // Test
     testImplementation 'junit:junit:4.13.2'
