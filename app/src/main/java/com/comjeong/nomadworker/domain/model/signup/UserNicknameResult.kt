@@ -1,4 +1,4 @@
-package com.comjeong.nomadworker.domain.model
+package com.comjeong.nomadworker.domain.model.signup
 
 import com.google.gson.annotations.SerializedName
 

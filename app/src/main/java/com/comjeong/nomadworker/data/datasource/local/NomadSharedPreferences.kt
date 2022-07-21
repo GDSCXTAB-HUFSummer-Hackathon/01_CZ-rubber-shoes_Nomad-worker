@@ -9,6 +9,7 @@ object NomadSharedPreferences {
     private const val USER_NICKNAME_KEY = "user_nickname"
     private const val USER_LATITUDE_KEY = "user_latitude"
     private const val USER_LONGITUDE_KEY = "user_longitude"
+    private const val USER_LOGIN_STATUS_KEY = "user_login_status"
 
     lateinit var preferences: SharedPreferences
 
@@ -32,6 +33,10 @@ object NomadSharedPreferences {
         return preferences.getFloat(USER_LONGITUDE_KEY, 0.0F)
     }
 
+    fun getUserIsLogin(): Boolean {
+        return preferences.getBoolean(USER_LOGIN_STATUS_KEY, false)
+    }
+
     private fun setAccessToken(value: String?) {
         preferences.edit().putString(ACCESS_TOKEN_KEY, value).apply()
     }
@@ -48,12 +53,17 @@ object NomadSharedPreferences {
         preferences.edit().putFloat(USER_LONGITUDE_KEY, value).apply()
     }
 
+    private fun setUserIsLogin(value: Boolean) {
+        preferences.edit().putBoolean(USER_LOGIN_STATUS_KEY, value).apply()
+    }
+
     // 로그인
     fun setUser(user: UserInfo?) {
         setUserNickname(user?.userNickname)
         setUserLatitude(user?.latitude!!)
         setUserLongitude(user.longitude)
         setAccessToken(user.accessToken)
+        setUserIsLogin(user.isLogin)
     }
 
     // 토큰 삭제

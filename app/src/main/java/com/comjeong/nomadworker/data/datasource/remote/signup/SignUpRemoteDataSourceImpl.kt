@@ -1,4 +1,4 @@
-package com.comjeong.nomadworker.data.datasource.remote
+package com.comjeong.nomadworker.data.datasource.remote.signup
 
 import com.comjeong.nomadworker.data.datasource.source.SignUpDataSource
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData

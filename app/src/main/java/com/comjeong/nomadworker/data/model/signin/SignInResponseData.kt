@@ -1,15 +1,15 @@
-package com.comjeong.nomadworker.domain.model
+package com.comjeong.nomadworker.data.model.signin
 
 import com.google.gson.annotations.SerializedName
 
-data class SignUpResult(
+data class SignInResponseData(
     @SerializedName("message") val message: String,
     @SerializedName("status") val status: Int,
-    @SerializedName("data") val data: MemberInfo
+    @SerializedName("data") val data: Result
 ) {
-    data class MemberInfo(
-        @SerializedName("nickname") val userNickname: String,
-        @SerializedName("token") val accessToken: String,
+    data class Result(
+        @SerializedName("nickname") val nickname: String?,
+        @SerializedName("token") val accessToken: String?,
         @SerializedName("latitude") val latitude: Float,
         @SerializedName("longitude") val longitude: Float
     )

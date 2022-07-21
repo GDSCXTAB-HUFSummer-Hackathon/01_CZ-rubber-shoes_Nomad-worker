@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.comjeong.nomadworker.common.Event
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
-import com.comjeong.nomadworker.domain.SignUpRepository
-import com.comjeong.nomadworker.domain.model.SignUpResult
+import com.comjeong.nomadworker.domain.repository.signup.SignUpRepository
+import com.comjeong.nomadworker.domain.model.signup.SignUpResult
 import com.comjeong.nomadworker.model.UserInfo
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -95,10 +95,11 @@ class SignUpViewModel(private val repository: SignUpRepository) : ViewModel() {
                 when (response.status) {
                     200 -> {
                         _isSignUpSuccess.value = Event(true)
-                        setUser(response)
+                        setUser(response, true)
                     }
                     400 -> {
                         _isSignUpSuccess.value = Event(false)
+                        setUser(response, false)
                     }
                 }
 
@@ -109,13 +110,14 @@ class SignUpViewModel(private val repository: SignUpRepository) : ViewModel() {
         }
     }
 
-    private fun setUser(response: SignUpResult) {
+    private fun setUser(response: SignUpResult, loginStatus: Boolean) {
         NomadSharedPreferences.setUser(
             UserInfo(
                 userNickname = response.data.userNickname,
                 accessToken = response.data.accessToken,
                 latitude = response.data.latitude,
-                longitude = response.data.longitude
+                longitude = response.data.longitude,
+                isLogin = loginStatus
             )
         )
     }
