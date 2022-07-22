@@ -37,7 +37,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun bindViews() {
         binding.clCurrentLocation.setOnClickListener {
             if(requireActivity().isGrantedLocationPermission())
-                navigate(R.id.action_navigation_home_to_userLocationFragment)
+                navigate(R.id.action_navigation_home_to_navigation_userLocationFragment)
             else
                 Toast.makeText(requireActivity(),"위치 권한을 허용해주세요 :(", Toast.LENGTH_SHORT).show()
                 requireActivity().requestLocationPermission()

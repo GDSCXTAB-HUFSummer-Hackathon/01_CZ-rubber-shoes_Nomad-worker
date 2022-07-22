@@ -11,8 +11,8 @@
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_userLocationFragment"
-            app:destination="@id/userLocationFragment" />
+            android:id="@+id/action_navigation_home_to_navigation_userLocationFragment"
+            app:destination="@id/navigation_userLocationFragment" />
     </fragment>
 
     <fragment
@@ -63,7 +63,7 @@
         tools:layout="@layout/activity_new_feed" />
 
     <fragment
-        android:id="@+id/userLocationFragment"
+        android:id="@+id/navigation_userLocationFragment"
         android:name="com.comjeong.nomadworker.ui.home.UserLocationFragment"
         android:label="fragment_user_location"
         tools:layout="@layout/fragment_user_location" />
