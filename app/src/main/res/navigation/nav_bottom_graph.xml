@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.comjeong.nomadworker.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_userLocationFragment"
+            app:destination="@id/userLocationFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_feed"
@@ -57,5 +61,11 @@
         android:name="com.comjeong.nomadworker.ui.feed.NewFeedActivity"
         android:label="activity_new_feed"
         tools:layout="@layout/activity_new_feed" />
+
+    <fragment
+        android:id="@+id/userLocationFragment"
+        android:name="com.comjeong.nomadworker.ui.home.UserLocationFragment"
+        android:label="fragment_user_location"
+        tools:layout="@layout/fragment_user_location" />
 
 </navigation>
