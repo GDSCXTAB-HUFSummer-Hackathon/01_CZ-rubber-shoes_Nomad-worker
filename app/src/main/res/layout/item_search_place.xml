@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="place"
+            type="com.comjeong.nomadworker.domain.model.home.LocationPlaceResult.Result.Place" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +20,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_place_thumbnail"
+            imageUrl="@{place.placeThumbnailImageUrl}"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
@@ -32,7 +37,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
-            android:maxLines="2"
+            android:layout_marginEnd="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{place.placeName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
             app:layout_constraintTop_toTopOf="@id/iv_place_thumbnail"
@@ -45,6 +53,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{place.placeAddress}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
             app:layout_constraintTop_toBottomOf="@id/tv_place_name"
             tools:text="용인 외대점" />
@@ -66,6 +79,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:text="@{place.placeWeekTime}"
             app:layout_constraintBottom_toBottomOf="@id/tv_weekday_time_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_weekday_time_title"
@@ -89,6 +104,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:text="@{place.placeWeekEndTime}"
             app:layout_constraintBottom_toBottomOf="@id/tv_weekend_time_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_weekend_time_title"
@@ -105,8 +122,7 @@
             android:scaleType="center"
             android:src="@drawable/ic_wifi_24"
             app:layout_constraintBottom_toBottomOf="@id/iv_place_thumbnail"
-            app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail"
-            app:layout_constraintTop_toBottomOf="@id/tv_weekend_time_title" />
+            app:layout_constraintStart_toEndOf="@id/iv_place_thumbnail" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_plug"

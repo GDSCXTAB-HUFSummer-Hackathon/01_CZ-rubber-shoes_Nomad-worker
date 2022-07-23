@@ -1,7 +1,7 @@
 package com.comjeong.nomadworker.data.network.api
 
 import com.comjeong.nomadworker.data.model.home.LocationCategoryResponseData
-import com.comjeong.nomadworker.data.model.home.LocationPlaceResponseData
+import com.comjeong.nomadworker.data.model.place.LocationPlaceResponseData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationRequestData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationResponseData
 import retrofit2.http.Body
@@ -20,8 +20,8 @@ interface PlaceApi {
     suspend fun getLocationCategory(): LocationCategoryResponseData
 
     @GET("place/location")
-    suspend fun getPlaceByLocationCategory(
-        @Query("locationCategory") categoryName: String
+    suspend fun getPlaceByLocationName(
+        @Query("locationCategory") locationName: String
     ): LocationPlaceResponseData
 }
 

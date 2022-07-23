@@ -10,6 +10,7 @@ import com.comjeong.nomadworker.common.Constants.LOCATION_NAME_KEY
 import com.comjeong.nomadworker.common.EventObserver
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
 import com.comjeong.nomadworker.databinding.FragmentHomeBinding
+import com.comjeong.nomadworker.domain.model.home.LocationCategoryResult.Category
 import com.comjeong.nomadworker.ui.common.BaseFragment
 import com.comjeong.nomadworker.ui.common.NavigationUtil.navigate
 import com.comjeong.nomadworker.ui.common.NavigationUtil.navigateWithBundle
@@ -28,7 +29,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         setHomeCategoryBanner()
         bindInitCurrentLocation()
         observeCurrentLocation()
-
         observeEvent()
     }
 
@@ -71,7 +71,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun setHomeCategoryBanner() {
         with(binding.vpCategory) {
-            adapter = HomeCategoryAdapter().apply {
+            adapter = HomeCategoryAdapter(viewModel).apply {
                 viewModel.locationCategory.observe(viewLifecycleOwner) { category ->
                     submitList(category)
                 }

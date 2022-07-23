@@ -10,6 +10,4 @@ interface HomeRepository {
     suspend fun getLocationCategory(): LocationCategoryResult
 
     suspend fun updateCurrentLocation(body : UpdateCurrentLocationRequestData): UpdateCurrentLocationResult
-
-    suspend fun getPlaceByLocationCategory(categoryName: String): LocationPlaceResult
 }
