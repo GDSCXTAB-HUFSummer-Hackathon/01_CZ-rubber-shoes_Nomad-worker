@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="locationViewModel"
+            type="com.comjeong.nomadworker.ui.home.UserLocationViewModel" />
+        <variable
             name="nickname"
             type="String" />
 
@@ -118,11 +121,13 @@
                         style="@style/TextSubtitle2.Bold.Blue"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        tools:text="서울시청"
                         android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toStartOf="@id/iv_update_location"
+                        android:layout_marginEnd="10dp"
                         app:layout_constraintBottom_toBottomOf="@id/iv_current_location"
                         app:layout_constraintStart_toEndOf="@id/iv_current_location"
-                        app:layout_constraintTop_toTopOf="@id/iv_current_location"
-                        tools:text="서울시청" />
+                        app:layout_constraintTop_toTopOf="@id/iv_current_location" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_update_location"

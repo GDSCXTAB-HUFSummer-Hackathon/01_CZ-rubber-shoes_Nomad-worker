@@ -81,6 +81,8 @@ dependencies {
 
     // Google Maps SDK
     implementation "com.google.android.gms:play-services-maps:$googleMapsVersion"
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:2.3.0'
 
     // Test
     testImplementation 'junit:junit:4.13.2'
