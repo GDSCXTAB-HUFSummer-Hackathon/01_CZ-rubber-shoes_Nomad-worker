@@ -2,6 +2,7 @@ package com.comjeong.nomadworker.data.datasource.remote.home
 
 import com.comjeong.nomadworker.data.datasource.source.home.HomeRemoteDataSource
 import com.comjeong.nomadworker.data.model.home.LocationCategoryResponseData
+import com.comjeong.nomadworker.data.model.home.RecommendPlaceResponseData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationRequestData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationResponseData
 import com.comjeong.nomadworker.data.model.place.NearbyPlaceResponseData
@@ -21,5 +22,9 @@ class HomeRemoteDataSourceImpl(private val api: PlaceApi) : HomeRemoteDataSource
         longitude: Float
     ): NearbyPlaceResponseData {
         return api.getNearbyPlace(latitude, longitude)
+    }
+
+    override suspend fun getRecommendPlace(): RecommendPlaceResponseData {
+        return api.getRecommendPlace()
     }
 }
