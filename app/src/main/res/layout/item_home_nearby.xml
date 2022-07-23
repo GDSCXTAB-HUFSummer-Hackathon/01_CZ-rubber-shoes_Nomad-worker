@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.comjeong.nomadworker.ui.home.HomeViewModel" />
 
         <variable
             name="place"
@@ -15,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="4dp"
-        android:paddingEnd="4dp">
+        android:paddingEnd="4dp"
+        android:onClick="@{() -> viewModel.openPlaceDetailByPlaceId(place.placeId)}">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_nearby_thumbnail"

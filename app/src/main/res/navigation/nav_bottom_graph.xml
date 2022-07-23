@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_home_to_place_region"
             app:destination="@id/navigation_place_region" />
+        <action
+            android:id="@+id/action_home_to_place_detail"
+            app:destination="@id/navigation_place_detail" />
     </fragment>
 
     <fragment

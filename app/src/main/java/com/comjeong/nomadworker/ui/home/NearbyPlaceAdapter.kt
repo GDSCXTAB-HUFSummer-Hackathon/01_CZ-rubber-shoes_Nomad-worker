@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.comjeong.nomadworker.databinding.ItemHomeNearbyBinding
 import com.comjeong.nomadworker.domain.model.place.NearbyPlaceResult
 
-class NearbyPlaceAdapter : ListAdapter<NearbyPlaceResult.Result, NearbyPlaceAdapter.NearbyPlaceViewHolder>(NearbyPlaceDiffCallback()) {
+class NearbyPlaceAdapter(private val viewModel: HomeViewModel) : ListAdapter<NearbyPlaceResult.Result, NearbyPlaceAdapter.NearbyPlaceViewHolder>(NearbyPlaceDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NearbyPlaceViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,9 +20,10 @@ class NearbyPlaceAdapter : ListAdapter<NearbyPlaceResult.Result, NearbyPlaceAdap
         holder.bindItems(getItem(position))
     }
 
-    class NearbyPlaceViewHolder(private val binding: ItemHomeNearbyBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class NearbyPlaceViewHolder(private val binding: ItemHomeNearbyBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindItems(placeResult: NearbyPlaceResult.Result) {
+            binding.viewModel = viewModel
             binding.place = placeResult
             binding.executePendingBindings()
         }

@@ -54,7 +54,8 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     private val _nearbyPlaceList: MutableLiveData<List<NearbyPlaceResult.Result>> = MutableLiveData<List<NearbyPlaceResult.Result>>()
     val nearbyPlaceResult: LiveData<List<NearbyPlaceResult.Result>> = _nearbyPlaceList
 
-//    private val _openPlaceDetailEvent: MutableLiveData<Event<Long>> = MutableLiveData<Event<Long>>()
+    private val _openPlaceDetailEvent: MutableLiveData<Event<Long>> = MutableLiveData<Event<Long>>()
+    val openPlaceDetailEvent: LiveData<Event<Long>> = _openPlaceDetailEvent
 
     private val _openPlaceRegionEvent: MutableLiveData<Event<String>> = MutableLiveData<Event<String>>()
     val openPlaceRegionEvent: LiveData<Event<String>> = _openPlaceRegionEvent
@@ -144,6 +145,9 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
         }
     }
 
+    fun openPlaceDetailByPlaceId(placeId: Long) {
+        _openPlaceDetailEvent.value = Event(placeId)
+    }
 
     fun openPlaceRegionByLocationName(locationName: String) {
         Timber.d("CLICKED")
