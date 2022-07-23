@@ -1,8 +1,8 @@
-package com.comjeong.nomadworker.data.datasource.source
+package com.comjeong.nomadworker.domain.repository.home
 
 import com.comjeong.nomadworker.model.CategoryList
 
-interface HomeDataSource {
+interface HomeRepository {
 
     fun getHomeCategory(): CategoryList?
 }

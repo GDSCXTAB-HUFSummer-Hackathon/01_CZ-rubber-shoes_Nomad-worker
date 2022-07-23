@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="nickname"
+            type="String" />
 
     </data>
 
@@ -41,14 +44,16 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_home_banner"
                         style="@style/TextHeadLine4.Bold.White"
-                        android:layout_width="wrap_content"
+                        nickname="@{nickname}"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginBottom="24dp"
+                        android:layout_marginEnd="24dp"
                         android:maxLines="2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:text="닉네임님, 오늘은\n어디서 근무하시나요?" />
+                        app:layout_constraintEnd_toEndOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.Toolbar
@@ -148,9 +153,9 @@
                     android:id="@+id/vp_category"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_category_title" />
