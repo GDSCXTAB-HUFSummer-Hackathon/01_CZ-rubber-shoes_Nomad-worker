@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="locationViewModel"
+            type="com.comjeong.nomadworker.ui.home.UserLocationViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -46,9 +48,9 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginBottom="24dp"
                         android:maxLines="2"
+                        android:text="닉네임님, 오늘은\n어디서 근무하시나요?"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:text="닉네임님, 오늘은\n어디서 근무하시나요?" />
+                        app:layout_constraintStart_toStartOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.Toolbar
@@ -113,11 +115,13 @@
                         style="@style/TextSubtitle2.Bold.Blue"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        tools:text="서울시청"
                         android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toStartOf="@id/iv_update_location"
+                        android:layout_marginEnd="10dp"
                         app:layout_constraintBottom_toBottomOf="@id/iv_current_location"
                         app:layout_constraintStart_toEndOf="@id/iv_current_location"
-                        app:layout_constraintTop_toTopOf="@id/iv_current_location"
-                        tools:text="서울시청" />
+                        app:layout_constraintTop_toTopOf="@id/iv_current_location" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_update_location"

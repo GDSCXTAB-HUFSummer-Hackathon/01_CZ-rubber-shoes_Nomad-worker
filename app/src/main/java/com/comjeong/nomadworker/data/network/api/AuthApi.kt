@@ -1,15 +1,15 @@
 package com.comjeong.nomadworker.data.network.api
 
+import com.comjeong.nomadworker.data.model.location.UpdateCurrentLocationRequestData
+import com.comjeong.nomadworker.data.model.location.UpdateCurrentLocationResponseData
 import com.comjeong.nomadworker.data.model.signin.SignInRequestData
 import com.comjeong.nomadworker.data.model.signin.SignInResponseData
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
 import com.comjeong.nomadworker.data.model.signup.SignUpResponseData
 import com.comjeong.nomadworker.data.model.signup.UserEmailResponseData
 import com.comjeong.nomadworker.data.model.signup.UserNicknameResponseData
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import com.google.android.gms.location.LocationSettingsResponse
+import retrofit2.http.*
 
 interface AuthApi {
 
@@ -32,4 +32,9 @@ interface AuthApi {
     suspend fun postSignIn(
         @Body body: SignInRequestData
     ): SignInResponseData
+
+    @PUT("user/geographic")
+    suspend fun updateCurrentLocation(
+        @Body body : UpdateCurrentLocationRequestData
+    ) : UpdateCurrentLocationResponseData
 }
