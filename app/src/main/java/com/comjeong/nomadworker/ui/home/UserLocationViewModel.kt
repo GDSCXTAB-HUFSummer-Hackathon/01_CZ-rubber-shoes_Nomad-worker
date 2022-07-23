@@ -47,14 +47,18 @@ class UserLocationViewModel(private val repository : UserLocationRepository) : V
 
 
     fun setUserLocationAddress(geocoder : Geocoder){
-        val address : List<Address> = geocoder.getFromLocation(_latitude,_longitude,1)
-        if(address.isNotEmpty()){
-            _userAddress = address[0].getAddressLine(0)
-            userAddress = _userAddress
-            _isPossibleUpdate.value = true
-        }
-        else{
-            _isPossibleUpdate.value = false
+        try{
+            val address : List<Address> = geocoder.getFromLocation(_latitude,_longitude,1)
+            if(address.isNotEmpty()){
+                _userAddress = address[0].getAddressLine(0)
+                userAddress = _userAddress
+                _isPossibleUpdate.value = true
+            }
+            else{
+                _isPossibleUpdate.value = false
+            }
+        }catch (e : Throwable){
+            e.printStackTrace()
         }
 
     }
@@ -65,7 +69,6 @@ class UserLocationViewModel(private val repository : UserLocationRepository) : V
 
         viewModelScope.launch {
             try{
-//                val userToken : String? = NomadSharedPreferences.getAccessToken()
                 val response = repository.updateCurrentLocation(requestBody)
 
                 when(response.status) {

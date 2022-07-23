@@ -3,6 +3,7 @@ package com.comjeong.nomadworker.ui.home
 import android.location.*
 import android.location.Location
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -17,6 +18,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import timber.log.Timber
 
 class UserLocationFragment : BaseFragment<FragmentUserLocationBinding>(R.layout.fragment_user_location),
     OnMapReadyCallback,
@@ -99,6 +101,7 @@ class UserLocationFragment : BaseFragment<FragmentUserLocationBinding>(R.layout.
             viewModel.latitude = location.latitude
             viewModel.longitude = location.longitude
             showCurrentLocationAddress()
+            Log.d("유저의 현재위치 주소", viewModel.userAddress)
         }catch (e : Throwable){
             e.printStackTrace()
         }
@@ -159,7 +162,12 @@ class UserLocationFragment : BaseFragment<FragmentUserLocationBinding>(R.layout.
     }
 
     private fun showCurrentLocationAddress() {
-        viewModel.setUserLocationAddress(Geocoder(requireActivity()))
+        try{
+            viewModel.setUserLocationAddress(Geocoder(requireActivity()))
+        }catch(e : Throwable){
+            Timber.d("geoCoder ${e}")
+            e.printStackTrace()
+        }
         binding.tvCurrentLocation.text = viewModel.userAddress
     }
 

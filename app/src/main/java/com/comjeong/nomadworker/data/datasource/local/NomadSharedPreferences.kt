@@ -28,11 +28,11 @@ object NomadSharedPreferences {
     }
 
     fun getUserLatitude(): Float {
-        return preferences.getFloat(USER_LATITUDE_KEY, Constants.DEFAULT_LATITUDE)
+        return preferences.getFloat(USER_LATITUDE_KEY, 0F)
     }
 
     fun getUserLongitude(): Float {
-        return preferences.getFloat(USER_LONGITUDE_KEY, Constants.DEFAULT_LONGITUDE)
+        return preferences.getFloat(USER_LONGITUDE_KEY, 0F)
     }
 
     fun getUserLocation() : String? {
