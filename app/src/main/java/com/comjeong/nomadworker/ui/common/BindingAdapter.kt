@@ -40,6 +40,12 @@ object BindingAdapter {
         view.text = view.context.getString(R.string.unit_kr_currency, decimalFormat.format(price))
     }
 
+    @JvmStatic
+    @BindingAdapter("toString")
+    fun setToString(view: AppCompatTextView, likeCount: Int) {
+        view.text = likeCount.toString()
+    }
+
 //    @JvmStatic
 //    @BindingAdapter("menuVisibility")
 //    fun setMenuVisibility(view: ConstraintLayout, model: List<PlaceDetailResult.Result.Menu>?) {

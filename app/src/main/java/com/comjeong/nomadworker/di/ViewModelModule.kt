@@ -1,5 +1,6 @@
 package com.comjeong.nomadworker.di
 
+import com.comjeong.nomadworker.ui.feed.FeedViewModel
 import com.comjeong.nomadworker.ui.home.HomeViewModel
 import com.comjeong.nomadworker.ui.place.PlaceDetailViewModel
 import com.comjeong.nomadworker.ui.place.PlaceRegionViewModel
@@ -14,4 +15,5 @@ val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
     viewModel { PlaceRegionViewModel(get()) }
     viewModel { PlaceDetailViewModel(get()) }
+    viewModel { FeedViewModel(get()) }
 }

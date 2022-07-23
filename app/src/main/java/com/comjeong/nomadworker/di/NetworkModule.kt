@@ -3,6 +3,7 @@ package com.comjeong.nomadworker.di
 import com.comjeong.nomadworker.common.Constants.BASE_URL
 import com.comjeong.nomadworker.data.network.NetworkInterceptor
 import com.comjeong.nomadworker.data.network.api.AuthApi
+import com.comjeong.nomadworker.data.network.api.FeedApi
 import com.comjeong.nomadworker.data.network.api.PlaceApi
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -39,5 +40,9 @@ val networkModule = module {
 
     single<PlaceApi> {
         get<Retrofit>().create(PlaceApi::class.java)
+    }
+
+    single<FeedApi> {
+        get<Retrofit>().create(FeedApi::class.java)
     }
 }
