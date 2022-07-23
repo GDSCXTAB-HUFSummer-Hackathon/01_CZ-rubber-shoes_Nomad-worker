@@ -7,7 +7,7 @@
 
         <variable
             name="place"
-            type="com.comjeong.nomadworker.domain.model.home.LocationPlaceResult.Result.Place" />
+            type="com.comjeong.nomadworker.domain.model.place.LocationPlaceResult.Result.Place" />
 
     </data>
 

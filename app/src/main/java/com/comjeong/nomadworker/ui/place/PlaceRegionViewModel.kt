@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.comjeong.nomadworker.domain.model.home.LocationPlaceResult
+import com.comjeong.nomadworker.domain.model.place.LocationPlaceResult
 import com.comjeong.nomadworker.domain.repository.place.PlaceRegionRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber
