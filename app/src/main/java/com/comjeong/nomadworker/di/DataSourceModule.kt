@@ -23,5 +23,5 @@ val dataSourceModule = module {
     single<PlaceRegionDataSource> { PlaceRegionRemoteDataSourceImpl(get()) }
     single<PlaceDetailDataSource> { PlaceDetailRemoteDataSourceImpl(get()) }
     single<FeedsDataSource> { FeedsRemoteDataSourceImpl(get()) }
-    single<MyPageDataSource> { MyPageRemoteDataSourceImpl(get()) }
+    single<MyPageDataSource> { MyPageRemoteDataSourceImpl(get(), get()) }
 }
