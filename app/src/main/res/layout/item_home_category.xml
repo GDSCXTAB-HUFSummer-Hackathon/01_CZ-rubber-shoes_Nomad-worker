@@ -7,21 +7,26 @@
 
         <variable
             name="category"
-            type="com.comjeong.nomadworker.model.Category" />
+            type="com.comjeong.nomadworker.domain.model.home.LocationCategoryResult.Category" />
+
+        <variable
+            name="viewModel"
+            type="com.comjeong.nomadworker.ui.home.HomeViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:onClick="@{() -> viewModel.openPlaceRegionByLocationName(category.location)}">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_category_thumbnail"
             imageUrl="@{category.thumbnailUrl}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_width="240dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
+            android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/RoundCorner10"
@@ -42,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="16dp"
             android:text="@{category.location}"
             app:layout_constraintBottom_toBottomOf="@id/iv_category_thumbnail"
             app:layout_constraintStart_toStartOf="@id/iv_category_thumbnail"

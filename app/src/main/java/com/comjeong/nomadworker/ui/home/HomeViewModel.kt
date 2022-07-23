@@ -1,22 +1,24 @@
 package com.comjeong.nomadworker.ui.home
 
-import android.content.Context
 import android.location.Address
 import android.location.Geocoder
-import android.location.Location
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.comjeong.nomadworker.common.Event
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
-import com.comjeong.nomadworker.data.model.location.UpdateCurrentLocationRequestData
-import com.comjeong.nomadworker.domain.repository.location.UserLocationRepository
+import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationRequestData
+import com.comjeong.nomadworker.domain.model.home.LocationCategoryResult.Category
+import com.comjeong.nomadworker.domain.repository.home.HomeRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class UserLocationViewModel(private val repository : UserLocationRepository) : ViewModel() {
+class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
+
+    init {
+        getLocationCategory()
+    }
 
     private var _latitude : Double = NomadSharedPreferences.getUserLatitude().toDouble()
     var latitude : Double = _latitude
@@ -45,6 +47,11 @@ class UserLocationViewModel(private val repository : UserLocationRepository) : V
     private val _isPossibleUpdate: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val isPossibleUpdate: LiveData<Boolean> = _isPossibleUpdate
 
+    private val _locationCategory: MutableLiveData<List<Category>> = MutableLiveData<List<Category>>()
+    val locationCategory: LiveData<List<Category>> = _locationCategory
+
+    private val _openPlaceRegionEvent: MutableLiveData<Event<String>> = MutableLiveData<Event<String>>()
+    val openPlaceRegionEvent: LiveData<Event<String>> = _openPlaceRegionEvent
 
     fun setUserLocationAddress(geocoder : Geocoder){
         try{
@@ -61,6 +68,26 @@ class UserLocationViewModel(private val repository : UserLocationRepository) : V
             e.printStackTrace()
         }
 
+    }
+
+    private fun getLocationCategory() {
+        viewModelScope.launch {
+            try {
+                val response = repository.getLocationCategory()
+
+                when(response.status) {
+                    200 -> {
+                        _locationCategory.value = response.data
+                    }
+                    400 -> {
+                        _locationCategory.value = emptyList()
+                    }
+                }
+                Timber.d("SUCCESS $response")
+            } catch (e: Throwable) {
+                Timber.d("FAILED $e")
+            }
+        }
     }
 
     fun updateUserCurrentLocation() {
@@ -87,5 +114,11 @@ class UserLocationViewModel(private val repository : UserLocationRepository) : V
                 Timber.d("FAILED $e")
             }
         }
+    }
+
+
+    fun openPlaceRegionByLocationName(locationName: String) {
+        Timber.d("CLICKED")
+        _openPlaceRegionEvent.value = Event(locationName)
     }
 }

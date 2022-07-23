@@ -1,20 +1,20 @@
 package com.comjeong.nomadworker.ui.home
 
-import android.location.*
+import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import com.comjeong.nomadworker.R
 import com.comjeong.nomadworker.common.Constants
-import com.comjeong.nomadworker.common.EventObserver
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
 import com.comjeong.nomadworker.databinding.FragmentUserLocationBinding
 import com.comjeong.nomadworker.ui.common.BaseFragment
-import com.google.android.gms.maps.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -25,7 +25,7 @@ class UserLocationFragment : BaseFragment<FragmentUserLocationBinding>(R.layout.
     GoogleMap.OnMyLocationClickListener,
     GoogleMap.OnMyLocationButtonClickListener
 {
-    private val viewModel: UserLocationViewModel by sharedViewModel()
+    private val viewModel: HomeViewModel by sharedViewModel()
 
     private lateinit var mGoogleMap: GoogleMap
     private lateinit var mMapView: MapView
@@ -68,6 +68,7 @@ class UserLocationFragment : BaseFragment<FragmentUserLocationBinding>(R.layout.
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+        Timber.d("Start")
         initUserLocation()
         val currentLocation = getSavedUserLocation()
 
@@ -106,12 +107,6 @@ class UserLocationFragment : BaseFragment<FragmentUserLocationBinding>(R.layout.
             e.printStackTrace()
         }
     }
-
-
-
-
-
-
 
     private fun bindRequestUpdateLocation(){
         binding.btnCurrentLocation.setOnClickListener {

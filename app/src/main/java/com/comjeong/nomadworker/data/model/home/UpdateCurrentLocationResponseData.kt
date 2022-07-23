@@ -1,8 +1,8 @@
-package com.comjeong.nomadworker.domain.model.location
+package com.comjeong.nomadworker.data.model.home
 
 import com.google.gson.annotations.SerializedName
 
-data class UpdateCurrentLocationResult(
+data class UpdateCurrentLocationResponseData(
     @SerializedName("message") val message : String,
     @SerializedName("status") val status : Int
 )
