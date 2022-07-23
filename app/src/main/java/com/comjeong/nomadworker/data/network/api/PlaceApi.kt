@@ -1,6 +1,7 @@
 package com.comjeong.nomadworker.data.network.api
 
 import com.comjeong.nomadworker.data.model.home.LocationCategoryResponseData
+import com.comjeong.nomadworker.data.model.home.RecommendPlaceResponseData
 import com.comjeong.nomadworker.data.model.place.LocationPlaceResponseData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationRequestData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationResponseData
@@ -36,5 +37,8 @@ interface PlaceApi {
         @Query("latitude") latitude: Float,
         @Query("longitude") longitude: Float
     ): NearbyPlaceResponseData
+
+    @GET("place/recommend")
+    suspend fun getRecommendPlace(): RecommendPlaceResponseData
 }
 
