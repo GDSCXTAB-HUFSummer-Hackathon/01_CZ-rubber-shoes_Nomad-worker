@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.comjeong.nomadworker.ui.place.PlaceRegionViewModel" />
+
+        <variable
             name="place"
             type="com.comjeong.nomadworker.domain.model.place.LocationPlaceResult.Result.Place" />
 
@@ -15,6 +19,7 @@
         android:id="@+id/cl_place"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.openPlaceDetailByPlaceId(place.placeId)}"
         android:paddingTop="6dp"
         android:paddingBottom="6dp">
 

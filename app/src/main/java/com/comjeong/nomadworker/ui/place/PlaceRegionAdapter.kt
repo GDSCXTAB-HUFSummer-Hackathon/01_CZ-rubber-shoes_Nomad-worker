@@ -21,10 +21,11 @@ class PlaceRegionAdapter(private val viewModel: PlaceRegionViewModel)
         holder.bindItems(getItem(position))
     }
 
-    class PlaceRegionViewHolder(private val binding: ItemSearchPlaceBinding) :
+    inner class PlaceRegionViewHolder(private val binding: ItemSearchPlaceBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItems(place: LocationPlaceResult.Result.Place) {
 
+            binding.viewModel = viewModel
             binding.place = place
             binding.executePendingBindings()
 

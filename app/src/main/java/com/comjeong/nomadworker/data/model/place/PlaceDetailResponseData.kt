@@ -16,14 +16,8 @@ data class PlaceDetailResponseData(
         @SerializedName("p_addr") val placeAddress: String,
         @SerializedName("p_image") val placeImageUrl: String,
         @SerializedName("p_latitude") val placeLatitude: Double,
-        @SerializedName("p_logitude") val placeLongitude: Double,
+        @SerializedName("p_longitude") val placeLongitude: Double,
         @SerializedName("p_storeType") val placeStoreType: String,
-        @SerializedName("menu") val cafeMenu: List<Menu>?,
-        @SerializedName("rental_price") val officeRentalPrice: String?
-    ) {
-        data class Menu(
-            @SerializedName("m_menu") val menuName: String,
-            @SerializedName("m_price") val menuPrice: String
-        )
-    }
+        @SerializedName("p_url") val placeUrl: String
+    )
 }

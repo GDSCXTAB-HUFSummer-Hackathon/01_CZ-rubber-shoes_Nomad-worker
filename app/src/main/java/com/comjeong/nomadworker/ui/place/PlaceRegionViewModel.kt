@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.comjeong.nomadworker.common.Event
 import com.comjeong.nomadworker.domain.model.place.LocationPlaceResult
 import com.comjeong.nomadworker.domain.repository.place.PlaceRegionRepository
 import kotlinx.coroutines.launch
@@ -25,6 +26,8 @@ class PlaceRegionViewModel(private val repository: PlaceRegionRepository) : View
     private val _placeList: MutableLiveData<List<LocationPlaceResult.Result.Place>> = MutableLiveData<List<LocationPlaceResult.Result.Place>>()
     val placeList: LiveData<List<LocationPlaceResult.Result.Place>> = _placeList
 
+    private val _openPlaceDetailEvent: MutableLiveData<Event<Long>> = MutableLiveData<Event<Long>>()
+    val openPlaceDetailEvent: LiveData<Event<Long>> = _openPlaceDetailEvent
 
     fun getPlaceWithLocationName() {
         Timber.d("START")
@@ -51,5 +54,7 @@ class PlaceRegionViewModel(private val repository: PlaceRegionRepository) : View
         }
     }
 
-
+    fun openPlaceDetailByPlaceId(placeId: Long) {
+        _openPlaceDetailEvent.value = Event(placeId)
+    }
 }

@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="placeInfo"
+            type="com.comjeong.nomadworker.domain.model.place.PlaceDetailResult.Result" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -19,6 +23,7 @@
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:collapsedTitleTextColor="@color/nomad_black_01"
                 app:contentScrim="@color/nomad_white"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -29,6 +34,7 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_place_detail_thumbnail"
+                        imageUrl="@{placeInfo.placeImageUrl}"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
                         android:scaleType="centerCrop"
@@ -41,38 +47,6 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="#80000000" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_place_type"
-                        style="@style/TextHeadLine6.Bold.Grey07"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="36dp"
-                        android:layout_marginBottom="76dp"
-                        android:text="카페"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_wifi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_wifi_24"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_place_type"
-                        app:layout_constraintStart_toEndOf="@id/tv_place_type"
-                        app:layout_constraintTop_toTopOf="@id/tv_place_type" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_plug"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_plug_24"
-                        app:layout_constraintBottom_toBottomOf="@id/iv_wifi"
-                        app:layout_constraintStart_toEndOf="@id/iv_wifi"
-                        app:layout_constraintTop_toTopOf="@id/iv_wifi" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.Toolbar
@@ -81,9 +55,7 @@
                     android:layout_height="?attr/actionBarSize"
                     app:contentInsetStartWithNavigation="0dp"
                     app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/ic_back_24"
-                    app:title="커피에반하다"
-                    app:titleTextAppearance="@style/TextHeadLine4.Bold.White" />
+                    app:navigationIcon="@drawable/ic_back_24" />
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -98,15 +70,75 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_name"
+                    style="@style/TextHeadLine5.Black01.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="@{placeInfo.placeName}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="커피에반하다" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_type"
+                    style="@style/TextSubtitle1.Bold.Black01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{placeInfo.placeStoreType}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_name"
+                    tools:text="카페" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_wifi_24"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_place_type"
+                    app:layout_constraintStart_toEndOf="@id/tv_place_type"
+                    app:layout_constraintTop_toTopOf="@id/tv_place_type" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_plug"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_plug_24"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_wifi"
+                    app:layout_constraintStart_toEndOf="@id/iv_wifi"
+                    app:layout_constraintTop_toTopOf="@id/iv_wifi" />
+
+                <View
+                    android:id="@+id/view_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/nomad_blue_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_type" />
+
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_opening_hours"
                     style="@style/TextHeadLine6.Bold.Black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="24dp"
                     android:text="영업 시간"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/view_divider" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_opening_weekday"
@@ -126,6 +158,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="24dp"
+                    android:text="@{placeInfo.placeWeekTime}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_opening_weekday"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_opening_weekday"
@@ -150,6 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="24dp"
+                    android:text="@{placeInfo.placeWeekendTime}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_opening_weekend"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_opening_weekend"
@@ -157,7 +191,7 @@
                     tools:text="10:00 - 14:00" />
 
                 <View
-                    android:id="@+id/view_divider"
+                    android:id="@+id/view_divider2"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginStart="24dp"
@@ -168,148 +202,79 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_opening_weekend" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_cafe_menu_container"
-                    android:layout_width="0dp"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_url_title"
+                    style="@style/TextHeadLine6.Bold.Black"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="장소 정보"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view_divider">
+                    app:layout_constraintTop_toBottomOf="@id/view_divider2" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_menu_info"
-                        style="@style/TextHeadLine6.Bold.Black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="메뉴 정보"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_menu_first_title"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="아이스 아메리카노"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_menu_info" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_menu_first_price"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_menu_first_title"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/tv_menu_first_title"
-                        app:layout_constraintTop_toTopOf="@id/tv_menu_first_title"
-                        tools:text="10,000원" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_menu_second_title"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="카푸치노"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_menu_first_title" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_menu_second_price"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_menu_second_title"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/tv_menu_second_title"
-                        app:layout_constraintTop_toTopOf="@id/tv_menu_second_title"
-                        tools:text="8,000원" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_menu_third_title"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="카라멜 마끼아또"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_menu_second_title" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_menu_third_price"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_menu_third_title"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/tv_menu_third_title"
-                        app:layout_constraintTop_toTopOf="@id/tv_menu_third_title"
-                        tools:text="6,000원" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_office_rental_container"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_url"
+                    style="@style/TextSubtitle1.Black01"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="24dp"
-                    android:visibility="gone"
+                    android:autoLink="web"
+                    android:linksClickable="true"
+                    android:text="@{placeInfo.placeUrl}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view_divider">
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_url_title" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_rental_info"
-                        style="@style/TextHeadLine6.Bold.Black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="대여 정보"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/view_divider3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/nomad_blue_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_url" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_rental_title"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="1시간"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_rental_info" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_google_map_title"
+                    style="@style/TextHeadLine6.Bold.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="위치 정보"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_divider3" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_rental_price"
-                        style="@style/TextSubtitle1.Black01"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_rental_title"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/tv_rental_title"
-                        app:layout_constraintTop_toTopOf="@id/tv_rental_title"
-                        tools:text="10,000원" />
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mv_place_map"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_google_map_title" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_address"
+                    style="@style/TextSubtitle1.Black01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{placeInfo.placeAddress}"
+                    app:layout_constraintTop_toBottomOf="@id/mv_place_map"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

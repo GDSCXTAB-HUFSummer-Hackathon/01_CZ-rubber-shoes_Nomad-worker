@@ -41,13 +41,7 @@ object PlaceMapper {
                 placeLatitude = body.data?.placeLatitude,
                 placeLongitude = body.data?.placeLongitude,
                 placeStoreType = body.data?.placeStoreType,
-                cafeMenu = body.data?.cafeMenu?.map { menu ->
-                    PlaceDetailResult.Result.Menu(
-                        menuName = menu.menuName,
-                        menuPrice = menu.menuPrice
-                    )
-                },
-                officeRentalPrice = body.data?.officeRentalPrice
+                placeUrl = body.data?.placeUrl
             )
         )
     }

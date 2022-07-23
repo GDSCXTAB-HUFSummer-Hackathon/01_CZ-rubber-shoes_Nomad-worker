@@ -75,6 +75,10 @@
         android:id="@+id/navigation_place_region"
         android:name="com.comjeong.nomadworker.ui.place.PlaceRegionFragment"
         android:label="fragment_place_region"
-        tools:layout="@layout/fragment_place_region" />
+        tools:layout="@layout/fragment_place_region" >
+        <action
+            android:id="@+id/action_place_region_to_place_detail"
+            app:destination="@id/navigation_place_detail" />
+    </fragment>
 
 </navigation>

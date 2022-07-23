@@ -16,12 +16,6 @@ data class PlaceDetailResult(
         val placeLatitude: Double?,
         val placeLongitude: Double?,
         val placeStoreType: String?,
-        val cafeMenu: List<Menu>?,
-        val officeRentalPrice: String?
-    ) {
-        data class Menu(
-            val menuName: String?,
-            val menuPrice: String?
-        )
-    }
+        val placeUrl: String?
+    )
 }
