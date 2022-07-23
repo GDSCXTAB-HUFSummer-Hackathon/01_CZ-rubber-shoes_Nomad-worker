@@ -1,34 +1,25 @@
 package com.comjeong.nomadworker.ui.home
 
-import android.app.AlertDialog
 import android.location.Geocoder
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.core.os.bundleOf
 import com.comjeong.nomadworker.R
+import com.comjeong.nomadworker.common.Constants.LOCATION_NAME_KEY
+import com.comjeong.nomadworker.common.EventObserver
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
 import com.comjeong.nomadworker.databinding.FragmentHomeBinding
 import com.comjeong.nomadworker.ui.common.BaseFragment
-import com.comjeong.nomadworker.ui.common.ViewModelFactory
 import com.comjeong.nomadworker.ui.common.NavigationUtil.navigate
+import com.comjeong.nomadworker.ui.common.NavigationUtil.navigateWithBundle
 import com.comjeong.nomadworker.ui.permission.UserPermission.isGrantedLocationPermission
 import com.comjeong.nomadworker.ui.permission.UserPermission.requestLocationPermission
-import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
-    private val locationViewModel : UserLocationViewModel by sharedViewModel()
-
-    private val viewModel: HomeViewModel by viewModels { ViewModelFactory(requireContext()) }
+    private val viewModel: HomeViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,6 +28,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         setHomeCategoryBanner()
         bindInitCurrentLocation()
         observeCurrentLocation()
+
+        observeEvent()
+    }
+
+    private fun observeEvent() {
+        viewModel.openPlaceRegionEvent.observe(viewLifecycleOwner, EventObserver<String> { locationName ->
+            movePlaceRegion(locationName)
+        })
+    }
+
+    private fun movePlaceRegion(locationName: String) {
+        navigateWithBundle(R.id.action_home_to_place_region, bundleOf(
+            LOCATION_NAME_KEY to locationName
+        ))
     }
 
     private fun bindViews() {
@@ -52,12 +57,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun bindInitCurrentLocation(){
-        locationViewModel.setUserLocationAddress(Geocoder(requireActivity()))
+        viewModel.setUserLocationAddress(Geocoder(requireActivity()))
         binding.tvCurrentLocation.text = NomadSharedPreferences.getUserLocation()
     }
 
     private fun observeCurrentLocation(){
-        locationViewModel.isUpdateLocation.observe(viewLifecycleOwner) { isSuccessUpdate ->
+        viewModel.isUpdateLocation.observe(viewLifecycleOwner) { isSuccessUpdate ->
             if(isSuccessUpdate){
                 binding.tvCurrentLocation.text = NomadSharedPreferences.getUserLocation()
             }
@@ -67,7 +72,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun setHomeCategoryBanner() {
         with(binding.vpCategory) {
             adapter = HomeCategoryAdapter().apply {
-                viewModel.homeCategory.observe(viewLifecycleOwner) { category ->
+                viewModel.locationCategory.observe(viewLifecycleOwner) { category ->
                     submitList(category)
                 }
             }

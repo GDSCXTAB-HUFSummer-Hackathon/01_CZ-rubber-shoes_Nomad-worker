@@ -7,13 +7,18 @@
 
         <variable
             name="category"
-            type="com.comjeong.nomadworker.model.Category" />
+            type="com.comjeong.nomadworker.domain.model.home.LocationCategoryResult.Category" />
+
+        <variable
+            name="viewModel"
+            type="com.comjeong.nomadworker.ui.home.HomeViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:onClick="@{() -> viewModel.openPlaceRegionByLocationName(category.location)}">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_category_thumbnail"

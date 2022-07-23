@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.comjeong.nomadworker.databinding.ItemHomeCategoryBinding
-import com.comjeong.nomadworker.model.Category
+import com.comjeong.nomadworker.domain.model.home.LocationCategoryResult.Category
 
 class HomeCategoryAdapter : ListAdapter<Category, HomeCategoryAdapter.HomeCategoryViewHolder>(HomeCategoryDiffCallback()) {
 
@@ -29,7 +29,7 @@ class HomeCategoryAdapter : ListAdapter<Category, HomeCategoryAdapter.HomeCatego
 
     class HomeCategoryDiffCallback : DiffUtil.ItemCallback<Category>() {
         override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
-            return oldItem.categoryId == newItem.categoryId
+            return oldItem.hashCode() == newItem.hashCode()
         }
 
         override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {

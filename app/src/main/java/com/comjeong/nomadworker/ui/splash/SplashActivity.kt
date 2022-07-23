@@ -21,7 +21,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         initSplash()
-//        startActivity(Intent(this, MainActivity::class.java))
 
     }
 

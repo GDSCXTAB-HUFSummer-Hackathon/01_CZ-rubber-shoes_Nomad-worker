@@ -53,8 +53,6 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
         <uses-library android:name="com.google.android.maps" />
-
-<!--            android:value="${googleMapsKey}" />-->
     </application>
 
 </manifest>
