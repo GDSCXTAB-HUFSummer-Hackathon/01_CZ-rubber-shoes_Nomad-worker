@@ -28,8 +28,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         bindViews()
         setHomeCategoryBanner()
         bindInitCurrentLocation()
+        setNearbyPlace()
         observeCurrentLocation()
+        setNearbyPlaceAdapter()
         observeEvent()
+    }
+
+    private fun setNearbyPlaceAdapter() {
+        with(binding.rvNearbyPlace) {
+            adapter = NearbyPlaceAdapter().apply {
+                viewModel.nearbyPlaceResult.observe(viewLifecycleOwner) { placeResult ->
+                    submitList(placeResult)
+                }
+            }
+        }
+    }
+
+    private fun setNearbyPlace() {
+        viewModel.getNearbyPlace()
     }
 
     private fun observeEvent() {
