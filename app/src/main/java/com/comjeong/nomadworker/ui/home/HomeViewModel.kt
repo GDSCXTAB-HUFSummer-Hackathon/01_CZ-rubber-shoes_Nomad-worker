@@ -10,6 +10,7 @@ import com.comjeong.nomadworker.common.Event
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationRequestData
 import com.comjeong.nomadworker.domain.model.home.LocationCategoryResult.Category
+import com.comjeong.nomadworker.domain.model.home.RecommendPlaceResult
 import com.comjeong.nomadworker.domain.model.place.NearbyPlaceResult
 import com.comjeong.nomadworker.domain.repository.home.HomeRepository
 import kotlinx.coroutines.launch
@@ -53,6 +54,9 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
 
     private val _nearbyPlaceList: MutableLiveData<List<NearbyPlaceResult.Result>> = MutableLiveData<List<NearbyPlaceResult.Result>>()
     val nearbyPlaceResult: LiveData<List<NearbyPlaceResult.Result>> = _nearbyPlaceList
+
+    private val _recommendPlaceList: MutableLiveData<List<RecommendPlaceResult.Result>> = MutableLiveData<List<RecommendPlaceResult.Result>>()
+    val recommendPlaceList: LiveData<List<RecommendPlaceResult.Result>> = _recommendPlaceList
 
     private val _openPlaceDetailEvent: MutableLiveData<Event<Long>> = MutableLiveData<Event<Long>>()
     val openPlaceDetailEvent: LiveData<Event<Long>> = _openPlaceDetailEvent
@@ -141,7 +145,28 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
                 }
                 Timber.d("SUCCESS $response")
             } catch (e: Throwable) {
-                Timber.d("FAILED $e")            }
+                Timber.d("FAILED $e")
+            }
+        }
+    }
+
+    fun getRecommendPlace() {
+        viewModelScope.launch {
+            try {
+                val response = repository.getRecommendPlace()
+
+                when (response.status) {
+                    200 -> {
+                        _recommendPlaceList.value = response.data
+                    }
+                    400 -> {
+                        _recommendPlaceList.value = emptyList()
+                    }
+                }
+                Timber.d("SUCCESS $response")
+            } catch (e: Throwable) {
+                Timber.d("FAILED $e")
+            }
         }
     }
 

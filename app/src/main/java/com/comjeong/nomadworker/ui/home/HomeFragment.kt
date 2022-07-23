@@ -30,16 +30,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         setHomeCategoryBanner()
         bindInitCurrentLocation()
         setNearbyPlace()
+        setRecommendPlace()
         observeCurrentLocation()
-        setNearbyPlaceAdapter()
+        setRecyclerViewAdapter()
         observeEvent()
     }
 
-    private fun setNearbyPlaceAdapter() {
-        with(binding.rvNearbyPlace) {
-            adapter = NearbyPlaceAdapter(viewModel).apply {
-                viewModel.nearbyPlaceResult.observe(viewLifecycleOwner) { placeResult ->
-                    submitList(placeResult)
+    private fun setRecyclerViewAdapter() {
+        with(binding) {
+            rvNearbyPlace.adapter = NearbyPlaceAdapter(viewModel).apply {
+                viewModel.nearbyPlaceResult.observe(viewLifecycleOwner) { nearbyPlaceList ->
+                    submitList(nearbyPlaceList)
+                }
+            }
+
+            rvRecommendPlace.adapter = RecommendPlaceAdapter(viewModel).apply {
+                viewModel.recommendPlaceList.observe(viewLifecycleOwner) { recommendPlaceList ->
+                    submitList(recommendPlaceList)
                 }
             }
         }
@@ -47,6 +54,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun setNearbyPlace() {
         viewModel.getNearbyPlace()
+    }
+
+    private fun setRecommendPlace() {
+        viewModel.getRecommendPlace()
     }
 
     private fun observeEvent() {

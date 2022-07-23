@@ -5,18 +5,28 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.comjeong.nomadworker.ui.home.HomeViewModel" />
+
+        <variable
+            name="place"
+            type="com.comjeong.nomadworker.domain.model.home.RecommendPlaceResult.Result" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp">
+        android:onClick="@{() -> viewModel.openPlaceDetailByPlaceId(place.placeId)}"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_recommend_thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            imageUrl="@{place.placeThumbnailUrl}"
+            android:layout_width="240dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="4dp"
+            android:text="@{place.placeCategory}"
             app:layout_constraintBottom_toTopOf="@id/tv_recommend_name"
             app:layout_constraintStart_toStartOf="@id/iv_recommend_thumbnail"
             tools:text="서울" />
@@ -49,9 +60,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="1"
+            android:text="@{place.placeName}"
             app:layout_constraintBottom_toBottomOf="@id/iv_recommend_thumbnail"
             app:layout_constraintEnd_toEndOf="@id/iv_recommend_thumbnail"
             app:layout_constraintStart_toStartOf="@id/iv_recommend_thumbnail"
