@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.comjeong.nomadworker.R
 import com.comjeong.nomadworker.common.Constants.LOCATION_NAME_KEY
+import com.comjeong.nomadworker.common.Constants.PLACE_ID_KEY
 import com.comjeong.nomadworker.common.EventObserver
 import com.comjeong.nomadworker.data.datasource.local.NomadSharedPreferences
 import com.comjeong.nomadworker.databinding.FragmentHomeBinding
@@ -28,14 +29,40 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         bindViews()
         setHomeCategoryBanner()
         bindInitCurrentLocation()
+        setNearbyPlace()
         observeCurrentLocation()
+        setNearbyPlaceAdapter()
         observeEvent()
+    }
+
+    private fun setNearbyPlaceAdapter() {
+        with(binding.rvNearbyPlace) {
+            adapter = NearbyPlaceAdapter(viewModel).apply {
+                viewModel.nearbyPlaceResult.observe(viewLifecycleOwner) { placeResult ->
+                    submitList(placeResult)
+                }
+            }
+        }
+    }
+
+    private fun setNearbyPlace() {
+        viewModel.getNearbyPlace()
     }
 
     private fun observeEvent() {
         viewModel.openPlaceRegionEvent.observe(viewLifecycleOwner, EventObserver<String> { locationName ->
             movePlaceRegion(locationName)
         })
+
+        viewModel.openPlaceDetailEvent.observe(viewLifecycleOwner, EventObserver<Long> { placeId ->
+            movePlaceDetail(placeId)
+        })
+    }
+
+    private fun movePlaceDetail(placeId: Long) {
+        navigateWithBundle(R.id.action_home_to_place_detail, bundleOf(
+            PLACE_ID_KEY to placeId
+        ))
     }
 
     private fun movePlaceRegion(locationName: String) {

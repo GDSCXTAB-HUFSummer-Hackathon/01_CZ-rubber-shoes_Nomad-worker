@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.comjeong.nomadworker.ui.home.HomeViewModel" />
+
+        <variable
+            name="place"
+            type="com.comjeong.nomadworker.domain.model.place.NearbyPlaceResult.Result" />
 
     </data>
 
@@ -11,10 +18,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="4dp"
-        android:paddingEnd="4dp">
+        android:paddingEnd="4dp"
+        android:onClick="@{() -> viewModel.openPlaceDetailByPlaceId(place.placeId)}">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_nearby_thumbnail"
+            imageUrl="@{place.placeThumbnailUrl}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
@@ -39,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="4dp"
+            android:text="@{place.placeCategory}"
             app:layout_constraintBottom_toTopOf="@id/tv_nearby_name"
             app:layout_constraintStart_toStartOf="@id/iv_nearby_thumbnail"
             tools:text="서울" />
@@ -52,6 +62,7 @@
             android:layout_marginBottom="24dp"
             android:ellipsize="end"
             android:maxLines="2"
+            android:text="@{place.placeName}"
             app:layout_constraintBottom_toBottomOf="@id/iv_nearby_thumbnail"
             app:layout_constraintEnd_toEndOf="@id/iv_nearby_thumbnail"
             app:layout_constraintStart_toStartOf="@id/iv_nearby_thumbnail"

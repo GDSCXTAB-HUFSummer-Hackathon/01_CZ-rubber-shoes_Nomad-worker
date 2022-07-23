@@ -5,6 +5,7 @@ import com.comjeong.nomadworker.data.mapper.HomeMapper
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationRequestData
 import com.comjeong.nomadworker.domain.model.home.LocationCategoryResult
 import com.comjeong.nomadworker.domain.model.home.UpdateCurrentLocationResult
+import com.comjeong.nomadworker.domain.model.place.NearbyPlaceResult
 import com.comjeong.nomadworker.domain.repository.home.HomeRepository
 
 class HomeRepositoryImpl(
@@ -18,5 +19,9 @@ class HomeRepositoryImpl(
     override suspend fun updateCurrentLocation(body: UpdateCurrentLocationRequestData
     ): UpdateCurrentLocationResult {
         return  HomeMapper.mapToUpdateCurrentLocationResult(homeRemoteDataSource.updateCurrentLocation(body))
+    }
+
+    override suspend fun getNearbyPlace(latitude: Float, longitude: Float): NearbyPlaceResult {
+        return HomeMapper.mapToNearbyPlaceResult(homeRemoteDataSource.getNearbyPlace(latitude, longitude))
     }
 }
