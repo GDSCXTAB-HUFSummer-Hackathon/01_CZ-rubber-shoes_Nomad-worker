@@ -1,8 +1,7 @@
-package com.comjeong.nomadworker.data.datasource.source
+package com.comjeong.nomadworker.data.datasource.source.home
 
 import com.comjeong.nomadworker.model.CategoryList
 
-interface HomeDataSource {
-
+interface HomeLocalDataSource {
     fun getHomeCategory(): CategoryList?
 }
