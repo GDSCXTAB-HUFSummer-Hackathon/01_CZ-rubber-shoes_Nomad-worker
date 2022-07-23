@@ -1,4 +1,4 @@
-package com.comjeong.nomadworker.data.model.home
+package com.comjeong.nomadworker.data.model.place
 
 import com.google.gson.annotations.SerializedName
 
