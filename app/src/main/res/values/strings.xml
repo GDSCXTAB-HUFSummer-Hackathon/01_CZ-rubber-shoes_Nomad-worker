@@ -78,4 +78,6 @@
     <string name="permission_notice_red">접근 권한을 거부했다면 다시 허용하기를 눌러주세요. 아무런 반응이 없다면 확인을 눌러주세요. 필요할 때 요청 드리겠습니다 :)</string>
     <string name="permission_check_button">허용하기</string>
 
+    <string name="unit_kr_currency">%s원</string>
+
 </resources>

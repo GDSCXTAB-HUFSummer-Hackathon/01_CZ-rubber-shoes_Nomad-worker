@@ -1,4 +1,4 @@
-package com.comjeong.nomadworker.domain.model.home
+package com.comjeong.nomadworker.domain.model.place
 
 data class LocationPlaceResult(
     val message: String,

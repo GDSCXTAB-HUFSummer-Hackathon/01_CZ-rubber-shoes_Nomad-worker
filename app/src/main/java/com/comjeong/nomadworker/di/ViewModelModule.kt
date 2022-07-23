@@ -1,6 +1,7 @@
 package com.comjeong.nomadworker.di
 
 import com.comjeong.nomadworker.ui.home.HomeViewModel
+import com.comjeong.nomadworker.ui.place.PlaceDetailViewModel
 import com.comjeong.nomadworker.ui.place.PlaceRegionViewModel
 import com.comjeong.nomadworker.ui.signin.SignInViewModel
 import com.comjeong.nomadworker.ui.signup.SignUpViewModel
@@ -12,4 +13,5 @@ val viewModelModule = module {
     viewModel { SignInViewModel(get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { PlaceRegionViewModel(get()) }
+    viewModel { PlaceDetailViewModel(get()) }
 }

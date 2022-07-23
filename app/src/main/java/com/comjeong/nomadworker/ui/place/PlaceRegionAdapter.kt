@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.comjeong.nomadworker.databinding.ItemSearchPlaceBinding
-import com.comjeong.nomadworker.domain.model.home.LocationPlaceResult
+import com.comjeong.nomadworker.domain.model.place.LocationPlaceResult
 
 class PlaceRegionAdapter(private val viewModel: PlaceRegionViewModel)
     : ListAdapter<LocationPlaceResult.Result.Place, PlaceRegionAdapter.PlaceRegionViewHolder>(PlaceRegionDiffCallback()) {
@@ -21,10 +21,11 @@ class PlaceRegionAdapter(private val viewModel: PlaceRegionViewModel)
         holder.bindItems(getItem(position))
     }
 
-    class PlaceRegionViewHolder(private val binding: ItemSearchPlaceBinding) :
+    inner class PlaceRegionViewHolder(private val binding: ItemSearchPlaceBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItems(place: LocationPlaceResult.Result.Place) {
 
+            binding.viewModel = viewModel
             binding.place = place
             binding.executePendingBindings()
 
