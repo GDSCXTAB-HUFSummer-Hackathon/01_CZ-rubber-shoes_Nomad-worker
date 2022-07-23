@@ -4,6 +4,7 @@ import com.comjeong.nomadworker.data.model.home.LocationCategoryResponseData
 import com.comjeong.nomadworker.data.model.place.LocationPlaceResponseData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationRequestData
 import com.comjeong.nomadworker.data.model.home.UpdateCurrentLocationResponseData
+import com.comjeong.nomadworker.data.model.place.PlaceDetailResponseData
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.PUT
@@ -23,5 +24,10 @@ interface PlaceApi {
     suspend fun getPlaceByLocationName(
         @Query("locationCategory") locationName: String
     ): LocationPlaceResponseData
+
+    @GET("place/detail")
+    suspend fun getPlaceDetailById(
+        @Query("placeId") placeId: Long
+    ): PlaceDetailResponseData
 }
 
