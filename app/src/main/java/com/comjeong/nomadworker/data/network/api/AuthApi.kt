@@ -1,5 +1,6 @@
 package com.comjeong.nomadworker.data.network.api
 
+import com.comjeong.nomadworker.data.model.mypage.UserInfoResponseData
 import com.comjeong.nomadworker.data.model.signin.SignInRequestData
 import com.comjeong.nomadworker.data.model.signin.SignInResponseData
 import com.comjeong.nomadworker.data.model.signup.SignUpRequestData
@@ -32,4 +33,7 @@ interface AuthApi {
     suspend fun postSignIn(
         @Body body: SignInRequestData
     ): SignInResponseData
+
+    @GET("user/profile")
+    suspend fun getUserInfo(): UserInfoResponseData
 }

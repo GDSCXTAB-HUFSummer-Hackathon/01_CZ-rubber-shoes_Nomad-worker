@@ -48,7 +48,11 @@
         android:id="@+id/navigation_my_page"
         android:name="com.comjeong.nomadworker.ui.mypage.MyPageFragment"
         android:label="MyPageFragment"
-        tools:layout="@layout/fragment_my_page" />
+        tools:layout="@layout/fragment_my_page" >
+        <action
+            android:id="@+id/action_my_page_to_feed_detail"
+            app:destination="@id/navigation_feed_detail" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search_option"
@@ -83,5 +87,10 @@
             android:id="@+id/action_place_region_to_place_detail"
             app:destination="@id/navigation_place_detail" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_feed_detail"
+        android:name="com.comjeong.nomadworker.ui.mypage.MyPageUserFeedDetailFragment"
+        android:label="MyPageUserFeedDetailFragment"
+        tools:layout="@layout/fragment_my_page_user_feed_detail"/>
 
 </navigation>
