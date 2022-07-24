@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_bottom_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.comjeong.nomadworker.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_userLocationFragment"
+            app:destination="@id/navigation_userLocationFragment" />
+        <action
+            android:id="@+id/action_home_to_place_region"
+            app:destination="@id/navigation_place_region" />
+        <action
+            android:id="@+id/action_home_to_place_detail"
+            app:destination="@id/navigation_place_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_feed"
+        android:name="com.comjeong.nomadworker.ui.feed.FeedFragment"
+        android:label="FeedFragment"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_navigation_feed_to_newFeedActivity"
+            app:destination="@id/navigation_new_feed_activity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_page"
+        android:name="com.comjeong.nomadworker.ui.mypage.MyPageFragment"
+        android:label="MyPageFragment"
+        tools:layout="@layout/fragment_my_page" >
+        <action
+            android:id="@+id/action_my_page_to_feed_detail"
+            app:destination="@id/navigation_feed_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search_option"
+        android:name="com.comjeong.nomadworker.ui.search.SearchOptionFragment"
+        android:label="SearchOptionFragment"
+        tools:layout="@layout/fragment_search_option"/>
+
+    <fragment
+        android:id="@+id/navigation_place_detail"
+        android:name="com.comjeong.nomadworker.ui.place.PlaceDetailFragment"
+        android:label="PlaceDetailFragment"
+        tools:layout="@layout/fragment_place_detail"/>
+
+    <activity
+        android:id="@+id/navigation_new_feed_activity"
+        android:name="com.comjeong.nomadworker.ui.feed.NewFeedActivity"
+        android:label="activity_new_feed"
+        tools:layout="@layout/activity_new_feed" />
+
+    <fragment
+        android:id="@+id/navigation_userLocationFragment"
+        android:name="com.comjeong.nomadworker.ui.home.UserLocationFragment"
+        android:label="fragment_user_location"
+        tools:layout="@layout/fragment_user_location" />
+
+    <fragment
+        android:id="@+id/navigation_place_region"
+        android:name="com.comjeong.nomadworker.ui.place.PlaceRegionFragment"
+        android:label="fragment_place_region"
+        tools:layout="@layout/fragment_place_region" >
+        <action
+            android:id="@+id/action_place_region_to_place_detail"
+            app:destination="@id/navigation_place_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_feed_detail"
+        android:name="com.comjeong.nomadworker.ui.mypage.MyPageUserFeedDetailFragment"
+        android:label="MyPageUserFeedDetailFragment"
+        tools:layout="@layout/fragment_my_page_user_feed_detail"/>
+
+</navigation>

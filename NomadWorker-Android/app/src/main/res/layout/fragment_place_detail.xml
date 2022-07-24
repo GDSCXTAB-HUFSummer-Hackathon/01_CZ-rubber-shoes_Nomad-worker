@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="placeInfo"
+            type="com.comjeong.nomadworker.domain.model.place.PlaceDetailResult.Result" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:collapsedTitleTextColor="@color/nomad_black_01"
+                app:contentScrim="@color/nomad_white"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:layout_collapseMode="parallax">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_place_detail_thumbnail"
+                        imageUrl="@{placeInfo.placeImageUrl}"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_nothing_to_show"
+                        android:tintMode="src_atop"
+                        app:layout_collapseMode="parallax"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#80000000" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/tb_place_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_back_24" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_name"
+                    style="@style/TextHeadLine5.Black01.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="@{placeInfo.placeName}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="커피에반하다" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_type"
+                    style="@style/TextSubtitle1.Bold.Black01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{placeInfo.placeStoreType}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_name"
+                    tools:text="카페" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_wifi_24"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_place_type"
+                    app:layout_constraintStart_toEndOf="@id/tv_place_type"
+                    app:layout_constraintTop_toTopOf="@id/tv_place_type" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_plug"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_plug_24"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_wifi"
+                    app:layout_constraintStart_toEndOf="@id/iv_wifi"
+                    app:layout_constraintTop_toTopOf="@id/iv_wifi" />
+
+                <View
+                    android:id="@+id/view_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/nomad_blue_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_type" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_opening_hours"
+                    style="@style/TextHeadLine6.Bold.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="영업 시간"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_divider" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_opening_weekday"
+                    style="@style/TextSubtitle1.Black01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/weekday_time_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_opening_hours" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_opening_weekday_hour"
+                    style="@style/TextSubtitle1.Black01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="@{placeInfo.placeWeekTime}"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_opening_weekday"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_opening_weekday"
+                    app:layout_constraintTop_toTopOf="@id/tv_opening_weekday"
+                    tools:text="9:00 - 18:00" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_opening_weekend"
+                    style="@style/TextSubtitle1.Black01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/weekend_time_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_opening_weekday" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_opening_weekend_hour"
+                    style="@style/TextSubtitle1.Black01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="@{placeInfo.placeWeekendTime}"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_opening_weekend"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_opening_weekend"
+                    app:layout_constraintTop_toTopOf="@id/tv_opening_weekend"
+                    tools:text="10:00 - 14:00" />
+
+                <View
+                    android:id="@+id/view_divider2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/nomad_blue_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_opening_weekend" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_url_title"
+                    style="@style/TextHeadLine6.Bold.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="장소 정보"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_divider2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_url"
+                    style="@style/TextSubtitle1.Black01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:autoLink="web"
+                    android:linksClickable="true"
+                    android:text="@{placeInfo.placeUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_url_title" />
+
+                <View
+                    android:id="@+id/view_divider3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/nomad_blue_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_place_url" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_google_map_title"
+                    style="@style/TextHeadLine6.Bold.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="위치 정보"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_divider3" />
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mv_place_map"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_google_map_title" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_place_address"
+                    style="@style/TextSubtitle1.Black01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{placeInfo.placeAddress}"
+                    app:layout_constraintTop_toBottomOf="@id/mv_place_map"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
