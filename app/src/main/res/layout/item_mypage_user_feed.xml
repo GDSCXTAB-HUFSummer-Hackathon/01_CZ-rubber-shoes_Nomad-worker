@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.comjeong.nomadworker.ui.mypage.MyPageViewModel" />
 
         <variable
             name="userFeed"
@@ -13,8 +16,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.openFeedDetailByFeedId(userFeed.feedId)}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_user_feed"

@@ -1,6 +1,6 @@
 package com.comjeong.nomadworker.di
 
-import com.comjeong.nomadworker.data.datasource.remote.MyPageRemoteDataSourceImpl
+import com.comjeong.nomadworker.data.datasource.remote.mypage.MyPageRemoteDataSourceImpl
 import com.comjeong.nomadworker.data.datasource.remote.feed.FeedsRemoteDataSourceImpl
 import com.comjeong.nomadworker.data.datasource.remote.home.HomeRemoteDataSourceImpl
 import com.comjeong.nomadworker.data.datasource.remote.place.PlaceDetailRemoteDataSourceImpl

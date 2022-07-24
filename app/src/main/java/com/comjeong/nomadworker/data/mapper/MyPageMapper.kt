@@ -1,8 +1,10 @@
 package com.comjeong.nomadworker.data.mapper
 
+import com.comjeong.nomadworker.data.model.mypage.UserFeedDetailResponseData
 import com.comjeong.nomadworker.data.model.mypage.UserInfoResponseData
 import com.comjeong.nomadworker.data.model.mypage.UserTotalFeedsResponseData
 import com.comjeong.nomadworker.domain.model.feed.UserTotalFeedResult
+import com.comjeong.nomadworker.domain.model.mypage.UserFeedDetailResult
 import com.comjeong.nomadworker.domain.model.mypage.UserInfoResult
 
 object MyPageMapper {
@@ -28,6 +30,20 @@ object MyPageMapper {
                         feedId = feed.feedId
                     )
                 }
+            )
+        )
+    }
+
+    fun mapToUserFeedDetailResult(body: UserFeedDetailResponseData): UserFeedDetailResult {
+        return UserFeedDetailResult(
+            message = body.message,
+            status = body.status,
+            data = UserFeedDetailResult.Result(
+                feedImage = body.data?.feedImage,
+                feedContent = body.data?.feedContent,
+                feedLike = body.data?.feedLike,
+                userProfileUrl = body.data?.userProfileUrl,
+                userNickname = body.data?.userNickname
             )
         )
     }

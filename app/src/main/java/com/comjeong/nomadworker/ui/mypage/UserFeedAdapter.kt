@@ -1,4 +1,4 @@
-package com.comjeong.nomadworker.ui.feed
+package com.comjeong.nomadworker.ui.mypage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.comjeong.nomadworker.databinding.ItemMypageUserFeedBinding
 import com.comjeong.nomadworker.domain.model.feed.UserTotalFeedResult
 
-class UserFeedAdapter : ListAdapter<UserTotalFeedResult.Result.Feed, UserFeedAdapter.UserFeedViewHolder>(UserFeedDiffCallback()) {
+class UserFeedAdapter(private val viewModel: MyPageViewModel) : ListAdapter<UserTotalFeedResult.Result.Feed, UserFeedAdapter.UserFeedViewHolder>(
+    UserFeedDiffCallback()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserFeedViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,8 +22,9 @@ class UserFeedAdapter : ListAdapter<UserTotalFeedResult.Result.Feed, UserFeedAda
         holder.bindItems(getItem(position))
     }
 
-    class UserFeedViewHolder(private val binding: ItemMypageUserFeedBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class UserFeedViewHolder(private val binding: ItemMypageUserFeedBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItems(feed: UserTotalFeedResult.Result.Feed) {
+            binding.viewModel = viewModel
             binding.userFeed = feed
             binding.executePendingBindings()
         }
