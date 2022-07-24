@@ -15,11 +15,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     }
 
     private fun bindViews() {
-        binding.clSearchOption.setOnClickListener {
-            navigate(R.id.action_search_to_search_option)
-        }
-        binding.tbSearch.setOnClickListener {
-            navigate(R.id.action_search_to_place_detail)
-        }
+//        binding.clSearchOption.setOnClickListener {
+//            navigate(R.id.action_search_to_search_option)
+//        }
+//        binding.tbSearch.setOnClickListener {
+//            navigate(R.id.action_search_to_place_detail)
+//        }
     }
 }
